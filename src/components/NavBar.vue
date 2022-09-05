@@ -1,98 +1,126 @@
 <template>
-  <header>
-    <nav class="nav-bar">
-      <div>
-        <img src="@/assets/logo.png" alt="">
-      </div>
-      <ul class="nav-menu">
-        <li class="nav-item" v-for="item in links">
-          <router-link class="nav-link" :to="item.path">{{item.name}}</router-link>
-        </li>
-      </ul>
-      <div @click="toggleActive" class="hamburger-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </nav>
+  <header class="nav-bar" ref="navBar">
+    <div>
+      <figure>
+        <img src="../assets/BaseIcons/logo.png" alt="logo">
+      </figure>
+      <HamburgerMenu  :isOpen="isOpen"
+                      @action="handleHambMenu"/>
+    </div>
+      <nav>
+        <router-link v-for="item in links"
+                      :key="item.id"
+                     :to="item.path">
+          <span @click="HandleChangeRoute">{{item.name}}</span>
+        </router-link>
+      </nav>
   </header>
 </template>
 
 <script>
+import HamburgerMenu from "./HamburgerMenu.vue";
     export default {
     name: "NavBar",
-
-  data() {
-    return{ 
-      links: [
-        {
-          path: '/calculator',
-          name: 'Calculator'
-        },
-        {
-          path: '/mathquiz',
-          name: 'Math quiz'
-        },
-        {
-          path: '/todolist',
-          name: 'ToDo List'
-        },
-        {
-          path: '/login',
-          name: 'Login'
-        }
-      ],
-      isOpen: true
-    };
-  },
-  methods: {
-    toggleActive() {
-      this.isOpen = !this.isOpen
-      this.$emit
+    components: { HamburgerMenu },
+    
+    data(){
+      return{
+        links: [
+          {
+            path:'/calculator',
+            name:'Calculator'
+          },
+          {
+            path:'/mathquiz',
+            name:'Math Quizz',
+          },
+          {
+            path:'/todolist',
+            name: 'ToDo List'
+          },
+          {
+            path:'/login',
+            name:'Log In'
+          }
+        ],
+        isOpen: false
+      }
+    },
+    
+    methods: {
+      handleHambMenu() {
+        this.isOpen = !this.isOpen
+      this.$refs.navBar.style.height = this.isOpen ? '100%' : '70px'
+    },
+    HandleChangeRoute() {
+      this.isOpen = false
+      this.$refs.navBar.style.height = '70px'
+    },
     }
-  }
 }
 </script>
 
 <style lang="scss">
  @import '../styles/vars.scss';
- @media only screen and (min-width: 0){
-  header{
-    background-color: $light-grey;
-    .nav-bar{
-      min-height: 70px;
-      display: flex;
-      justify-content: space-between;
+ @media only screen and (min-width: 0) {
+    .nav-bar {
+      height: 70px;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      border-bottom: 1px solid  black;
+      transition: height 0.3s ease-in-out;
       align-items: center;
-      padding: 0 16px;
-    }
-    .nav-menu{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 35px;
-      li {
-        list-style: none;
-        a{
-          text-decoration: none;
-          color: black;
-        }
+      z-index: 99;
+      position: fixed;
+      width: 100%;
+      background-color: $light-grey;
+      > div {
+        padding: 0 16px 24px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav {
+        margin-top: 120px;
+        margin-left: 43%;
+      }
+      a {
+        margin: 30px 0;
+        display: block;
+        text-decoration: none;
+        color: rgba($color: #000000, $alpha: 1.0);
+        font-size: 18px;
+      }
+      img{
+        cursor: pointer;
       }
     }
-    .hamburger-menu{
-      display: block;
-      cursor: pointer;
-    }
-    .bar{
-      display: block;
-      width: 25px;
-      height: 3px;
-      margin: 5px auto;
-      background-color: black;
-    }
-    
-  }
 
- }
+
+}
+@media only screen and (min-width: 768px) {
+  .nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      padding-top: 30px;
+    }
+    nav {
+      margin: 0;
+      margin-top: 0;
+      a {
+        margin: 0 15px;
+        display: inline-block;
+        
+      }
+    }
+  }
+}
+ 
+  
+  
 
 </style>
