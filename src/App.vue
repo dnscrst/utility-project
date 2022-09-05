@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <main class="app main-grid" >
     <NavBar />
     <router-view/>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -16,10 +16,8 @@ import NavBar from './components/NavBar.vue';
 </script>
 
 <style lang="scss">
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  .app{
+    height: 100%;
   }
 </style>
 

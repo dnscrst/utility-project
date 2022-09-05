@@ -1,8 +1,11 @@
 <template> 
     <div class="time-box">
         <p>{{days}}<span>days</span></p>
+        <span class="points">:</span>
         <p>{{hours}}<span>hours</span></p>
+        <span class="points">:</span>
         <p>{{minutes}}<span>min</span></p>
+        <span class="points">:</span>
         <p>{{seconds}}<span>sec</span></p>
     </div>
 </template>
@@ -63,14 +66,17 @@
         align-items: center;
         justify-content: space-around;
         transform: translateY(50px);
+        max-width: 430px;
+        min-width: 350px;
     }
     .time-box p {
         width: 70px;
         height: 70px;
-        line-height: 70px;
+        line-height: 65px;
         border-radius: 10px;
-        background-color: whitesmoke;
-        padding-left: 25px;
+        background-color: $light-grey;
+        padding-left: 24px;
+        padding-top: -10px;
         box-shadow: 0 0 4px;
         font-weight: bold;
         font-size: 20px;
@@ -82,7 +88,15 @@
         top: 22px;
         font-size: 12px;
     }
+    .points{
+     zoom: 3;
+     margin: -7px;
+     margin-bottom: -7px;
+    }
 
+}
+@media only screen and (min-width:430px){
+    
 }
 
 </style>
