@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import Countdown from '@/components/Countdown.vue';
+  import Countdown from '@/components/Countdown.vue';
 
-  export default {
-    name: "HomeView",
-    components: { Countdown }
-}
+    export default {
+      name: "HomeView",
+      components: { Countdown }
+  }
 </script>
 
 <style lang="scss">
@@ -20,7 +20,6 @@ import Countdown from '@/components/Countdown.vue';
       font-size: 30px;
       text-align: center;
       margin-top: 50px;
-
     }
   }
 </style>

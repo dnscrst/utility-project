@@ -2,62 +2,69 @@
   <header class="nav-bar" ref="navBar">
     <div>
       <figure>
-        <img src="../assets/BaseIcons/logo.png" alt="logo">
+        <img
+            @click="goToHome"
+            src="../assets/BaseIcons/logo.png"
+            alt="logo">
       </figure>
-      <HamburgerMenu  :isOpen="isOpen"
-                      @action="handleHambMenu"/>
+      <HamburgerMenu
+          :isOpen="isOpen"
+          @action="handleHambMenu"/>
     </div>
       <nav>
         <router-link v-for="item in links"
-                      :key="item.id"
+                     :key="item.id"
                      :to="item.path">
-          <span @click="HandleChangeRoute">{{item.name}}</span>
+                      <span @click="HandleChangeRoute">{{item.name}}</span>
         </router-link>
       </nav>
   </header>
 </template>
 
 <script>
-import HamburgerMenu from "./HamburgerMenu.vue";
-    export default {
-    name: "NavBar",
-    components: { HamburgerMenu },
-    
-    data(){
-      return{
-        links: [
-          {
-            path:'/calculator',
-            name:'Calculator'
-          },
-          {
-            path:'/mathquiz',
-            name:'Math Quizz',
-          },
-          {
-            path:'/todolist',
-            name: 'ToDo List'
-          },
-          {
-            path:'/login',
-            name:'Log In'
-          }
-        ],
-        isOpen: false
+  import HamburgerMenu from "./HamburgerMenu.vue";
+      export default {
+      name: "NavBar",
+      components: { HamburgerMenu },
+
+      data(){
+        return{
+          links: [
+            {
+              path:'/calculator',
+              name:'Calculator'
+            },
+            {
+              path:'/mathquiz',
+              name:'Math Quizz',
+            },
+            {
+              path:'/todolist',
+              name: 'ToDo List'
+            },
+            {
+              path:'/login',
+              name:'Log In'
+            }
+          ],
+          isOpen: false
+        }
+      },
+
+      methods: {
+        handleHambMenu() {
+          this.isOpen = !this.isOpen
+        this.$refs.navBar.style.height = this.isOpen ? '100%' : '70px'
+      },
+        HandleChangeRoute() {
+        this.isOpen = false
+        this.$refs.navBar.style.height = '70px'
+      },
+        goToHome() {
+          return this.$router.push('/')
+        }
       }
-    },
-    
-    methods: {
-      handleHambMenu() {
-        this.isOpen = !this.isOpen
-      this.$refs.navBar.style.height = this.isOpen ? '100%' : '70px'
-    },
-    HandleChangeRoute() {
-      this.isOpen = false
-      this.$refs.navBar.style.height = '70px'
-    },
-    }
-}
+  }
 </script>
 
 <style lang="scss">
@@ -110,7 +117,6 @@ import HamburgerMenu from "./HamburgerMenu.vue";
     }
     nav {
       margin: 0;
-      margin-top: 0;
       a {
         margin: 0 15px;
         display: inline-block;
@@ -119,8 +125,4 @@ import HamburgerMenu from "./HamburgerMenu.vue";
     }
   }
 }
- 
-  
-  
-
 </style>

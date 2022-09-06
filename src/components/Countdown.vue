@@ -51,14 +51,12 @@
                 return Math.trunc(Date.parse(this.date)/ 1000)
             }
         }
-
-        
     }
 </script>
 
 <style lang="scss">
-@import '../styles/vars.scss';
-@media only screen and (min-width: 0){
+  @import '../styles/vars.scss';
+  @media only screen and (min-width: 0){
     .time-box{
         width: 80%;
         margin: 0 auto;
@@ -93,7 +91,6 @@
      margin: -7px;
      margin-bottom: -7px;
     }
-
 }
 @media only screen and (min-width:430px){
     
