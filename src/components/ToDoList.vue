@@ -1,14 +1,14 @@
 <template>
-    <div class="container">
-        <div>
-            <input type="text" placeholder="Enter Text" class="form-control" />
-        </div>
+    <div>
+dasadsdsa1111
+asdadsasdads
+DDDDDD
     </div>
 </template>
 
 <script>
     export default {
-        name: 'ToDoList'
+        name: 'ToDoList',
     }
 </script>
 

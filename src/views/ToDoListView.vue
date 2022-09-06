@@ -1,7 +1,8 @@
 <template>
-    <div class="todolist-page">
+    <div class="todolist-page main-grid">
       <main>
-        <h1>Todo App</h1>
+        <h3>Todo App</h3>
+        <h3>adassadasdwads</h3>
         <ToDoList />
       </main>
     </div>
