@@ -1,7 +1,9 @@
 <template>
   <div class="home-page">
-    <h1>The Utility Effect</h1>
-    <Countdown date="13 January, 2023" />
+    <main>
+      <h1>The Utility Effect</h1>
+      <Countdown date="13 January, 2023" />
+    </main> 
   </div>
 </template>
 
