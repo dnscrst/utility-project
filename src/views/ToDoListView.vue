@@ -1,13 +1,18 @@
 <template>
     <div class="todolist-page">
-        <h1>ToDoList Future</h1>
+      <main>
+        <h1>Todo App</h1>
+        <ToDoList />
+      </main>
     </div>
 </template>
 
 <script>
+import ToDoList from '@/components/ToDoList.vue';
     export default {
-        name: 'ToDoListView'
-    }
+    name: "ToDoListView",
+    components: { ToDoList }
+}
 </script>
 
 <style lang="scss">

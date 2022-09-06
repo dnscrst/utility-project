@@ -9,7 +9,7 @@
     </div>
       <nav>
         <router-link v-for="item in links"
-                      :key="item.id"
+                     :key="item.id"
                      :to="item.path">
           <span @click="HandleChangeRoute">{{item.name}}</span>
         </router-link>
