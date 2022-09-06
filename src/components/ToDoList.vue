@@ -1,8 +1,10 @@
 <template>
     <div>
-dasadsdsa1111
-asdadsasdads
-DDDDDD
+        <form>
+            <label for="Text">
+                <input type="text" placeholder="Enter task" id="form-control">
+            </label>
+        </form>
     </div>
 </template>
 
