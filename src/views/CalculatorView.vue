@@ -146,8 +146,9 @@
       width: 300px;
       flex-wrap: wrap;
       background-color: #F8F8F8;
-      box-shadow: 1px 1px 4px 0px rgb(176 176 176);
+      box-shadow: 1px 1px 4px 0 rgb(176 176 176);
       padding: 20px 10px;
+      margin-top: 80px;
       .display {
         width: 100%;
         height: 70px;
@@ -165,7 +166,7 @@
         cursor: pointer;
         background-color: #F2F2F2;
         margin: 2px;
-        box-shadow: 1px 1px 1px 0px rgb(176 176 176);
+        box-shadow: 1px 1px 1px 0 rgb(176 176 176);
         &:hover{
           background-color: lightgrey;
         }
