@@ -131,8 +131,13 @@
         this.setPrevious()
       },
       equal() {
+        if(!this.previous) {
+          this.current= `${parseFloat(this.current)}`
+        }
+        else{
         this.current = `${this.operator(parseFloat(this.previous), parseFloat(this.current))}`
         this.previous = null
+        }
       }
     }
   }

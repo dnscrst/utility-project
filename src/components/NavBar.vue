@@ -64,10 +64,6 @@
           return this.$router.push('/')
         }
       }
-
-    }
-    
-
   
 </script>
 
