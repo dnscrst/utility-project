@@ -19,7 +19,9 @@
             </tr>
             <tr v-for="(task,index) in tasks" :key="index">
                 <td>{{task.name}}</td>
-                <td><span @click="changeStatus(index)">{{task.status}}</span></td>
+                <td><span @click="changeStatus(index)">
+                          {{task.status}}
+                    </span></td>
                 <td>
                     <div @click="editTask(index)">
                         <span class="fa fa-pen"></span>
@@ -99,6 +101,7 @@
                 border: none;
                 background-color: $light-grey;
                 border-radius: 15px;
+                cursor: pointer;
             }
         }
         table {
