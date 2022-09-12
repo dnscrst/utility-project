@@ -63,11 +63,9 @@
         goToHome() {
           return this.$router.push('/')
         }
+      },
       }
 
-    }
-  
-  
 </script>
 
 <style lang="scss">
