@@ -77,7 +77,7 @@
         background-color: $light-grey;
         padding-left: 24px;
         padding-top: -10px;
-        box-shadow: 0 0 4px;
+        box-shadow: 0 0 10px;
         font-weight: bold;
         font-size: 20px;
         position: relative;
@@ -90,7 +90,7 @@
     }
     .points{
      zoom: 3;
-     margin: -7px;
+     margin: -10px;
      margin-bottom: -7px;
     }
 

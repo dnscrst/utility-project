@@ -50,11 +50,11 @@ import HamburgerMenu from "./HamburgerMenu.vue";
     methods: {
       handleHambMenu() {
         this.isOpen = !this.isOpen
-      this.$refs.navBar.style.height = this.isOpen ? '100%' : '70px'
+      this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
     },
     HandleChangeRoute() {
       this.isOpen = false
-      this.$refs.navBar.style.height = '70px'
+      this.$refs.navBar.style.height = '60px'
     },
     }
 }
@@ -64,17 +64,16 @@ import HamburgerMenu from "./HamburgerMenu.vue";
  @import '../styles/vars.scss';
  @media only screen and (min-width: 0) {
     .nav-bar {
-      height: 70px;
+      height: 60px;
       top: 0;
       left: 0;
       overflow: hidden;
-      border-bottom: 1px solid  black;
       transition: height 0.3s ease-in-out;
       align-items: center;
       z-index: 99;
       position: fixed;
       width: 100%;
-      background-color: $light-grey;
+      background-color: white;
       > div {
         padding: 0 16px 24px 0;
         display: flex;
@@ -111,10 +110,24 @@ import HamburgerMenu from "./HamburgerMenu.vue";
     nav {
       margin: 0;
       margin-top: 0;
+      margin-right: 30px;
       a {
         margin: 0 15px;
         display: inline-block;
-        
+        transition: transform .2s;
+        &:hover{
+          transform: scale(1.2);
+          color: rgb(27, 214, 255);
+        }
+        &:nth-child(3) {
+          margin-right: 50px;
+        }
+        &:last-child{
+          color: white;
+          background-color: rgb(27, 214, 255);
+          padding: 5px 15px;
+          border-radius: 33px;
+        }
       }
     }
   }
