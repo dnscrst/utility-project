@@ -75,7 +75,7 @@
         background-color: $light-grey;
         padding-left: 24px;
         padding-top: -10px;
-        box-shadow: 0 0 10px;
+        box-shadow: 0 0 5px;
         font-weight: bold;
         font-size: 20px;
         position: relative;
