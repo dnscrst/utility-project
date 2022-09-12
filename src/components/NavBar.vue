@@ -54,16 +54,15 @@
       methods: {
         handleHambMenu() {
           this.isOpen = !this.isOpen
-        this.$refs.navBar.style.height = this.isOpen ? '100%' : '70px'
+        this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
       },
         HandleChangeRoute() {
         this.isOpen = false
-        this.$refs.navBar.style.height = '70px'
+        this.$refs.navBar.style.height = '60px'
       },
         goToHome() {
           return this.$router.push('/')
         }
-      },
       }
   
 </script>
@@ -82,6 +81,7 @@
       position: fixed;
       width: 100%;
       background-color: white;
+      border-bottom: 2px solid gray;
       > div {
         padding: 0 16px 24px 0;
         display: flex;
@@ -126,7 +126,7 @@
         display: inline-block;
         transition: transform .2s;
         &:hover{
-          transform: scale(1.2);
+          transform: scale(1.1);
           color: rgb(27, 214, 255);
         }
         &:nth-child(3) {
