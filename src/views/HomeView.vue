@@ -3,16 +3,18 @@
     <main>
       <h1>The Utility Effect</h1>
       <Countdown date="13 January, 2023" />
+      <BasicHomeComp />
     </main> 
   </div>
 </template>
 
 <script>
   import Countdown from '@/components/Countdown.vue';
+import BasicHomeComp from '@/components/BasicHomeComp.vue';
 
     export default {
       name: "HomeView",
-      components: { Countdown }
+      components: { Countdown, BasicHomeComp }
   }
 </script>
 
