@@ -54,32 +54,19 @@
       methods: {
         handleHambMenu() {
           this.isOpen = !this.isOpen
-        this.$refs.navBar.style.height = this.isOpen ? '100%' : '70px'
+        this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
       },
         HandleChangeRoute() {
         this.isOpen = false
-        this.$refs.navBar.style.height = '70px'
+        this.$refs.navBar.style.height = '60px'
       },
         goToHome() {
           return this.$router.push('/')
         }
       }
 
-    },
-    
-    methods: {
-      handleHambMenu() {
-        this.isOpen = !this.isOpen
-      this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
-    },
-    HandleChangeRoute() {
-      this.isOpen = false
-      this.$refs.navBar.style.height = '60px'
-    },
     }
-}
-
-  }
+  
   
 </script>
 
