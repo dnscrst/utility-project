@@ -5,8 +5,9 @@
     box-sizing: border-box;
     
   }
-  body{
-    background-image: url('@/assets/BaseIcons/backgroundImage.png')
+  body{ 
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 49%, rgba(187,186,186,1) 96%);
   }
   body, html {
     margin: 0;
