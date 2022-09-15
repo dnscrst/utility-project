@@ -59,7 +59,8 @@
                 this.tasks.push({
                 name: this.task,
                 status: 'To-do'
-            });
+              }
+             );
             }
             else{
                 this.tasks[this.editedTask].name = this.task;
@@ -85,77 +86,77 @@
 </script>
 
 <style lang="scss">
-@import '../styles/vars.scss';
-@media only screen and (min-width: 0) {
-    .container{
-        width: 100%;
-        .submit-form{
-            width: 100%;
-            text-align: center;
-            input{
-                max-width: 35%
-            }
-            button{
-                margin: 0 9px;
-                padding: 4px 20px;
-                border: none;
-                background-color: $light-grey;
-                border-radius: 15px;
-                cursor: pointer;
-            }
-        }
-        table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background-color: white;
-            tr{
-                max-width: 80%;
-                &:nth-child(even){
-                    background-color: lightgrey;
-                }
-            }
-            th{
-                text-align: justify;
-                 background-color: black;
-                 color: white;
-            }
-            td{
-                text-align: justify;
-                border: 1px solid lightgray;
-            }
-        }
-        .table-form{
-            padding-top: 25px;
-        }
-}
-}
-@media only screen and (min-width: 768px){
- .container{
-    width: 100%;
-    input{
-        width: 200px;
+  @import '../styles/vars.scss';
+  @media only screen and (min-width: 0) {
+      .container{
+          width: 100%;
+          .submit-form{
+              width: 100%;
+              text-align: center;
+              input{
+                  max-width: 35%
+              }
+              button{
+                  margin: 0 9px;
+                  padding: 4px 20px;
+                  border: none;
+                  background-color: $light-grey;
+                  border-radius: 15px;
+                  cursor: pointer;
+              }
+          }
+          table {
+              width: 80%;
+              margin: 0 auto;
+              border-collapse: collapse;
+              background-color: white;
+              tr{
+                  max-width: 80%;
+                  &:nth-child(even){
+                      background-color: lightgrey;
+                  }
+              }
+              th{
+                  text-align: justify;
+                   background-color: black;
+                   color: white;
+              }
+              td{
+                  text-align: justify;
+                  border: 1px solid lightgray;
+              }
+          }
+          .table-form{
+              padding-top: 25px;
+          }
+      }
+  }
+  @media only screen and (min-width: 768px){
+   .container{
+      width: 100%;
+      input{
+          width: 200px;
+      }
+      table{
+          width: 40%;
+          tr{
+              max-width: 60%;
+          }
+      }
     }
-    table{
-        width: 40%;
-        tr{
-            max-width: 60%;
-        }
-    }
- }
-}
-@media only screen and (min-width: 1140px) {
-    .container{
-        width: 100%;
-        input{
-            width: 250px;
-        }
-        table{
-            width: 30%;
-            tr{
-                max-width: 45%;
-            }
-        }
-    }
-}
+  }
+  @media only screen and (min-width: 1140px) {
+      .container{
+          width: 100%;
+          input{
+              width: 250px;
+          }
+          table{
+              width: 30%;
+              tr{
+                  max-width: 45%;
+              }
+          }
+      }
+  }
 </style>
