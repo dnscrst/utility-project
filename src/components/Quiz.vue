@@ -3,7 +3,7 @@
     <header>
       <span>Correct: 0/10</span>
       <span id="answer-number">1/10</span>
-      <button>&#x2716;</button>
+      <button  @click="handleExit">&#x2716;</button>
     </header>
     <div class="question-container">
       <h2>question</h2>
@@ -45,7 +45,9 @@ export default {
   },
 
   methods: {
-
+    handleExit(){
+      this.$emit('handleExit')
+    }
   }
 }
 </script>

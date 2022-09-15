@@ -3,6 +3,7 @@
    <button @click="handleQuiz" class="start-button">START QUIZ</button>
     <Quiz v-if="startQuiz"
           class="absolute-z"
+          @handleExit="startQuiz=false"
     />
   </div>
 
@@ -32,6 +33,10 @@ export default {
 @import "src/styles/base-classes.scss";
 @import "src/styles/base.scss";
 .start-button{
-  margin-top: 22%
+  margin-top: 18%;
+  padding: 30px 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightblue;
 }
 </style>
