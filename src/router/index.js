@@ -5,6 +5,7 @@ import CalculatorView from '../views/CalculatorView'
 import MathQuizView from '../views/MathQuizView'
 import ToDoListView from '../views/ToDoListView'
 import LoginView from '../views/LoginView'
+import RegisterView from '../views/RegisterView'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterView
   }
 ]
 

@@ -73,10 +73,12 @@
             this.task = '';
         },
         deleteTask(index){
-            this.$confirm("Are you sure?").then(() => {
-                this.tasks.splice(index, 1);
-            });
-
+            this.$confirm("You won't be able to revert this",
+                          "Are you sure?",
+                           'warning',
+                           ).then(()=>{
+                            this.tasks.splice(index, 1);
+                           })
         },
                 
         editTask(index){
@@ -93,7 +95,6 @@
 </script>
 
 <style lang="scss">
-<<<<<<< HEAD
 @import '../styles/vars.scss';
 @media only screen and (min-width: 0) {
     .container{
@@ -120,15 +121,16 @@
             margin: 0 auto;
             border-collapse: collapse;
             background-color: white;
+            box-shadow: 0 0 5px rgb(27, 214, 255);
             tr{
                 max-width: 80%;
                 padding: 7px 20px;
             }
             th{
                 text-align: justify;
-                 background-color: black;
-                 color: white;
+                 color: black;
                  padding: 7px 15px;
+                 border-bottom: 1px solid black;
             }
             td{
                 text-align: justify;
@@ -141,75 +143,17 @@
         .table-form{
             padding-top: 25px;
         }
-}
+    }
 }
 @media only screen and (min-width: 768px){
  .container{
     width: 100%;
     input{
         width: 200px;
-=======
-  @import '../styles/vars.scss';
-  @media only screen and (min-width: 0) {
-      .container{
-          width: 100%;
-          .submit-form{
-              width: 100%;
-              text-align: center;
-              input{
-                  max-width: 35%
-              }
-              button{
-                  margin: 0 9px;
-                  padding: 4px 20px;
-                  border: none;
-                  background-color: $light-grey;
-                  border-radius: 15px;
-                  cursor: pointer;
-              }
-          }
-          table {
-              width: 80%;
-              margin: 0 auto;
-              border-collapse: collapse;
-              background-color: white;
-              tr{
-                  max-width: 80%;
-                  &:nth-child(even){
-                      background-color: lightgrey;
-                  }
-              }
-              th{
-                  text-align: justify;
-                   background-color: black;
-                   color: white;
-              }
-              td{
-                  text-align: justify;
-                  border: 1px solid lightgray;
-              }
-          }
-          .table-form{
-              padding-top: 25px;
-          }
-      }
-  }
-  @media only screen and (min-width: 768px){
-   .container{
-      width: 100%;
-      input{
-          width: 200px;
-      }
-      table{
-          width: 40%;
-          tr{
-              max-width: 60%;
-          }
-      }
->>>>>>> origin/main
+
     }
   }
-  @media only screen and (min-width: 1140px) {
+@media only screen and (min-width: 1140px) {
       .container{
           width: 100%;
           input{
@@ -223,4 +167,5 @@
           }
       }
   }
+}
 </style>
