@@ -6,6 +6,9 @@ import './styles/base.scss'
 import './styles/base-classes.scss'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
+import VueSimpleAlert from "vue-simple-alert";
+
+Vue.use(VueSimpleAlert);
 
 Vue.config.productionTip = false
 

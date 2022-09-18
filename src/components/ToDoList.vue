@@ -4,7 +4,10 @@
         <div class="submit-form">
              <form>
                 <label>
-                    <input v-model="task" type="text" placeholder="Enter Task" id="input-control">
+                    <input v-model="task" 
+                           type="text" 
+                           placeholder="Enter Task" 
+                           id="input-control">
                      <button @click="submitTask">Submit</button>
                 </label>
              </form>
@@ -69,8 +72,12 @@
             this.task = '';
         },
         deleteTask(index){
-            this.tasks.splice(index, 1);
+            this.$confirm("Are you sure?").then(() => {
+                this.tasks.splice(index, 1);
+            });
+
         },
+                
         editTask(index){
             this.task = this.tasks[index].name;
             this.editedTask = index;
@@ -97,32 +104,36 @@
             }
             button{
                 margin: 0 9px;
-                padding: 4px 20px;
+                color: white;
+                background-color: rgb(27, 214, 255);
+                padding: 5px 15px;
+                border-radius: 33px;
                 border: none;
-                background-color: $light-grey;
-                border-radius: 15px;
                 cursor: pointer;
             }
         }
         table {
+            table-layout: auto;
             width: 80%;
             margin: 0 auto;
             border-collapse: collapse;
             background-color: white;
             tr{
                 max-width: 80%;
-                &:nth-child(even){
-                    background-color: lightgrey;
-                }
+                padding: 7px 20px;
             }
             th{
                 text-align: justify;
                  background-color: black;
                  color: white;
+                 padding: 7px 15px;
             }
             td{
                 text-align: justify;
-                border: 1px solid lightgray;
+                padding: 7px 15px;
+                border-bottom: 1px solid $light-grey;
+                max-width: 100%;
+                
             }
         }
         .table-form{

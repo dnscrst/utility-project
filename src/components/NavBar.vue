@@ -94,7 +94,7 @@
       }
       nav {
         margin-top: 120px;
-        margin-left: 43%;
+        text-align: center;
       }
       a {
         margin: 30px 0;
@@ -102,6 +102,13 @@
         text-decoration: none;
         color: rgba($color: #000000, $alpha: 1.0);
         font-size: 18px;
+        &:last-child{
+          //color: white;
+          //background-color: rgb(27, 214, 255);
+          //padding: 5px 15px;
+          //border-radius: 33px;
+
+        }
       }
       img{
         cursor: pointer;
@@ -141,6 +148,7 @@
           background-color: rgb(27, 214, 255);
           padding: 5px 15px;
           border-radius: 33px;
+
         }
       }
     }
