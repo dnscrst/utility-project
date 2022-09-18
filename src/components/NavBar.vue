@@ -1,5 +1,5 @@
 <template>
-  <header class="nav-bar" ref="navBar">
+  <header class="nav-bar " ref="navBar">
     <div>
       <figure>
         <img
@@ -24,9 +24,8 @@
 <script>
   import HamburgerMenu from "./HamburgerMenu.vue";
       export default {
-      name: "NavBar",
-      components: { HamburgerMenu },
-
+        name: "NavBar",
+        components: {HamburgerMenu},
       data(){
         return{
           links: [
@@ -65,8 +64,6 @@
       }
     }
 
-      
-  
 </script>
 
 <style lang="scss">
@@ -100,13 +97,6 @@
         text-decoration: none;
         color: rgba($color: #000000, $alpha: 1.0);
         font-size: 18px;
-        &:last-child{
-          //color: white;
-          //background-color: rgb(27, 214, 255);
-          //padding: 5px 15px;
-          //border-radius: 33px;
-
-        }
       }
       img{
         cursor: pointer;
