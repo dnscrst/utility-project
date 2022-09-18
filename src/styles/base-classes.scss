@@ -6,3 +6,11 @@
 .main-grid{
   padding-top: 50px;
 }
+.relative{
+  position: relative;
+}
+.absolute-z{
+  position: absolute;
+  z-index: 99;
+  
+}

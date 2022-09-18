@@ -1,5 +1,5 @@
 <template>
-  <header class="nav-bar" ref="navBar">
+  <header class="nav-bar " ref="navBar">
     <div>
       <figure>
         <img
@@ -24,44 +24,45 @@
 <script>
   import HamburgerMenu from "./HamburgerMenu.vue";
       export default {
-      name: "NavBar",
-      components: { HamburgerMenu },
+        name: "NavBar",
+        components: {HamburgerMenu},
 
-      data(){
-        return{
-          links: [
-            {
-              path:'/calculator',
-              name:'Calculator'
-            },
-            {
-              path:'/mathquiz',
-              name:'Math Quizz',
-            },
-            {
-              path:'/todolist',
-              name: 'ToDo List'
-            },
-            {
-              path:'/login',
-              name:'Log In'
-            }
-          ],
-          isOpen: false
-        }
-      },
+        data() {
+          return {
+            links: [
+              {
+                path: '/calculator',
+                name: 'Calculator'
+              },
+              {
+                path: '/mathquiz',
+                name: 'Math Quizz'
+              },
+              {
+                path: '/todolist',
+                name: 'ToDo List'
+              },
+              {
+                path: '/login',
+                name: 'Log In'
+              }
+            ],
+            isOpen: false
+          }
+        },
 
-      methods: {
-        handleHambMenu() {
-          this.isOpen = !this.isOpen
-        this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
-      },
-        HandleChangeRoute() {
-        this.isOpen = false
-        this.$refs.navBar.style.height = '60px'
-      },
-        goToHome() {
-          return this.$router.push('/')
+        methods: {
+          handleHambMenu() {
+            this.isOpen = !this.isOpen
+            this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
+          },
+          HandleChangeRoute() {
+            this.isOpen = false
+            this.$refs.navBar.style.height = '60px'
+          },
+          goToHome() {
+            return this.$router.push('/')
+          }
         }
       }
     }
