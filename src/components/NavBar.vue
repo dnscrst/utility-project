@@ -26,45 +26,43 @@
       export default {
         name: "NavBar",
         components: {HamburgerMenu},
-
-        data() {
-          return {
-            links: [
-              {
-                path: '/calculator',
-                name: 'Calculator'
-              },
-              {
-                path: '/mathquiz',
-                name: 'Math Quizz'
-              },
-              {
-                path: '/todolist',
-                name: 'ToDo List'
-              },
-              {
-                path: '/login',
-                name: 'Log In'
-              }
-            ],
-            isOpen: false
-          }
-        },
-
-        methods: {
-          handleHambMenu() {
-            this.isOpen = !this.isOpen
-            this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
-          },
-          HandleChangeRoute() {
-            this.isOpen = false
-            this.$refs.navBar.style.height = '60px'
-          },
-          goToHome() {
-            return this.$router.push('/')
-          }
+      data(){
+        return{
+          links: [
+            {
+              path:'/calculator',
+              name:'Calculator'
+            },
+            {
+              path:'/mathquiz',
+              name:'Math Quizz',
+            },
+            {
+              path:'/todolist',
+              name: 'ToDo List'
+            },
+            {
+              path:'/login',
+              name:'Log In'
+            }
+          ],
+          isOpen: false
         }
+      },
+      methods: {
+        handleHambMenu() {
+          this.isOpen = !this.isOpen
+        this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
+      },
+        HandleChangeRoute() {
+        this.isOpen = false
+        this.$refs.navBar.style.height = '60px'
+      },
+        goToHome() {
+          return this.$router.push('/')
+        },
       }
+    }
 
 </script>
 
@@ -91,7 +89,7 @@
       }
       nav {
         margin-top: 120px;
-        margin-left: 43%;
+        text-align: center;
       }
       a {
         margin: 30px 0;
@@ -138,6 +136,7 @@
           background-color: rgb(27, 214, 255);
           padding: 5px 15px;
           border-radius: 33px;
+
         }
       }
     }
