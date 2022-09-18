@@ -1,5 +1,5 @@
 import api from "@/store/api";
-import axios from "axios";
+import axios from 'axios';
 import router from "@/router";
 
 export const state = {
