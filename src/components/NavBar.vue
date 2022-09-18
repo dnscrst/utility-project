@@ -50,7 +50,6 @@
           isOpen: false
         }
       },
-
       methods: {
         handleHambMenu() {
           this.isOpen = !this.isOpen
@@ -62,8 +61,11 @@
       },
         goToHome() {
           return this.$router.push('/')
-        }
+        },
       }
+    }
+
+      
   
 </script>
 
