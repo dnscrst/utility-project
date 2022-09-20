@@ -100,8 +100,35 @@
             .fa-solid, .fa-user, .fa-solid, 
             .fa-envelope, .fa-solid, .fa-globe,
             .fa-solid, .fa-lock  {
-                //margin-right: 210px;
-                //margin-bottom: -30px;               
+                margin-right: 210px;
+                margin-bottom: -30px;               
+            }
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+    .register-page{
+        form{
+            width: 400px;
+            h2 {
+                font-size: 34px;
+            }
+            input {
+                padding: 10px 20px;
+            }
+            button {
+                padding: 15px 40px;
+                font-size: 16px;
+                transition: transform 0.2s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+            .fa-solid, .fa-user, .fa-solid, 
+            .fa-envelope, .fa-solid, .fa-globe,
+            .fa-solid, .fa-lock  {
+                margin-right: 240px;
+                margin-bottom: -33px;               
             }
         }
     }

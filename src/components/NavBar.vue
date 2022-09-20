@@ -15,8 +15,9 @@
         <router-link v-for="item in links"
                      :key="item.id"
                      :to="item.path">
-                      <span @click="HandleChangeRoute">{{item.name}}</span>
+                      <span @click="HandleChangeRoute">{{item.name}}</span>          
         </router-link>
+        <button @click="goToLogin">Log In</button>
       </nav>
   </header>
 </template>
@@ -41,10 +42,6 @@
               path:'/todolist',
               name: 'ToDo List'
             },
-            {
-              path:'/login',
-              name:'Log In'
-            }
           ],
           isOpen: false
         }
@@ -61,6 +58,9 @@
         goToHome() {
           return this.$router.push('/')
         },
+        goToLogin() {
+          return this.$router.push('/login')
+        }
       }
     }
 
@@ -131,12 +131,17 @@
         &:nth-child(3) {
           margin-right: 50px;
         }
-        &:last-child{
-          color: white;
-          background-color: rgb(27, 214, 255);
-          padding: 5px 15px;
-          border-radius: 33px;
-
+      }
+      button {
+        color: white;
+        background-color: rgb(27, 214, 255);
+        padding: 7px 20px;
+        border-radius: 33px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s;
+        &hover {
+          transform: scale(1.1);
         }
       }
     }
