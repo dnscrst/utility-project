@@ -90,6 +90,10 @@
           border-radius: 33px;
           border: none;
           cursor: pointer;
+          transition: transform 0.2s;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
         img{
             width: 200px;

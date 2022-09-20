@@ -98,6 +98,11 @@
         color: rgb(27, 214, 255);
         cursor: pointer;
       }
+      .fa-solid, .fa-envelope, 
+      .fa-solid, .fa-lock {
+        margin-right: 210px;
+        margin-bottom: -30px;
+      }
     }
 
     }
@@ -122,6 +127,11 @@
       }
       p {
         font-size: 18px;
+      }
+      .fa-solid, .fa-envelope, 
+      .fa-solid, .fa-lock {
+        margin-right: 240px;
+        margin-bottom: -33px;
       }
     }
   }

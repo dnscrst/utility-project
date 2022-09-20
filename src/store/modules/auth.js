@@ -14,10 +14,10 @@ export const actions = {
         }catch(error){
             console.log(error)
         }
+    },
     }
-}
 export const mutations = {
     SET_USER(state, user) {
         state.user = user
-    }
+    },
 }
