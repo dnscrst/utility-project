@@ -32,11 +32,32 @@ export default {
 <style lang="scss">
 @import "src/styles/base-classes.scss";
 @import "src/styles/base.scss";
-.start-button{
-  margin-top: 18%;
-  padding: 30px 40px;
-  border: none;
-  border-radius: 5px;
-  background-color: lightblue;
+@media only screen and (min-width: 0){
+  .math-quiz-page{
+    flex-direction: column;
+    height: 100%;
+    .start-button{
+      text-align: center;
+      padding: 32px 0px;
+      border: none;
+      border-radius: 5px;
+      background-color: lightblue;
+      height: 74px;
+      width: 140px;
+      margin: 0 auto;
+  }
+
+  }
 }
+@media only screen and (min-width: 768px){
+  .start-button{
+
+  }
+}
+@media only screen and (min-width: 1140px){
+  .start-button{
+    margin-top: 18%;
+  }
+}
+
 </style>
