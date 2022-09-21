@@ -21,7 +21,7 @@
         <span><a href="/resetPassowrd">Click here!</a></span>
         <br>
         <br>
-        <button>Login</button>
+        <button :username="user.username">Login</button>
         <br><br>
         <p>Don't have an acccount?</p>
         <span>
@@ -39,12 +39,15 @@
           user:{
             username:'',
             password:''
-          }
+          },
+          login: false
         }
       },
       methods: {
         handleLogin() {
           this.$store.dispatch('login', this.user)
+          this.login = true
+          console.log(this.login)
         }
       }
     }

@@ -17,7 +17,10 @@
                      :to="item.path">
                       <span @click="HandleChangeRoute">{{item.name}}</span>          
         </router-link>
-        <button @click="goToLogin">Log In</button>
+<!--        <button @click="goToLogin">Log In</button>-->
+        <button @click="handleLogout">Log Out
+        {{ username ? 'LOGOUT' : 'LOGIN'}}
+        </button>
       </nav>
   </header>
 </template>
@@ -27,6 +30,7 @@
       export default {
         name: "NavBar",
         components: {HamburgerMenu},
+        props: ['username'],
       data(){
         return{
           links: [
@@ -46,6 +50,11 @@
           isOpen: false
         }
       },
+        //   computed: {
+        //     user() {
+        //       return this.$store.state.user
+        //     }
+        // },
       methods: {
         handleHambMenu() {
           this.isOpen = !this.isOpen
@@ -60,6 +69,10 @@
         },
         goToLogin() {
           return this.$router.push('/login')
+        },
+        handleLogout() {
+          this.$store.dispatch('logout')
+          console.log(this.username)
         }
       }
     }

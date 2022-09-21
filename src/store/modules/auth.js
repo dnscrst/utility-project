@@ -15,6 +15,14 @@ export const actions = {
             console.log(error)
         }
     },
+    async logout() {
+        try{
+            await axios.delete(api.logout);
+            await router.push('/calculator')
+        }catch(error){
+            console.log(error)
+        }
+    }
     }
 export const mutations = {
     SET_USER(state, user) {
