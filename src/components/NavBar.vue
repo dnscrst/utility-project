@@ -17,9 +17,8 @@
                      :to="item.path">
                       <span @click="HandleChangeRoute">{{item.name}}</span>          
         </router-link>
-<!--        <button @click="goToLogin">Log In</button>-->
-        <button @click="handleLogout">Log Out
-        {{ username ? 'LOGOUT' : 'LOGIN'}}
+        <button v-if="!isLogged" @click="goToLogin">Log In</button>
+        <button v-else @click="handleLogout"> LOGOUT
         </button>
       </nav>
   </header>
@@ -27,10 +26,10 @@
 
 <script>
   import HamburgerMenu from "./HamburgerMenu.vue";
+  import LoginView from "@/views/LoginView";
       export default {
         name: "NavBar",
         components: {HamburgerMenu},
-        props: ['username'],
       data(){
         return{
           links: [
@@ -47,14 +46,16 @@
               name: 'ToDo List'
             },
           ],
-          isOpen: false
+          isOpen: false,
         }
       },
-        //   computed: {
-        //     user() {
-        //       return this.$store.state.user
-        //     }
-        // },
+        computed: {
+          isLogged() {
+            return this.$store.state.auth.isLogged
+          }
+        },
+
+
       methods: {
         handleHambMenu() {
           this.isOpen = !this.isOpen
@@ -69,11 +70,15 @@
         },
         goToLogin() {
           return this.$router.push('/login')
+
         },
+
         handleLogout() {
           this.$store.dispatch('logout')
-          console.log(this.username)
-        }
+
+          console.log(this.isLogged)
+        },
+
       }
     }
 
