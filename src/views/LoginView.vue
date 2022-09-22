@@ -21,7 +21,7 @@
         <span><a href="/resetPassowrd">Click here!</a></span>
         <br>
         <br>
-        <button :username="user.username">Login</button>
+        <button>Login</button>
         <br><br>
         <p>Don't have an acccount?</p>
         <span>
@@ -40,14 +40,18 @@
             username:'',
             password:''
           },
-          login: false
+        }
+      },
+      computed: {
+        isLogged() {
+         return this.$store.state.auth.isLogged;
         }
       },
       methods: {
         handleLogin() {
+          console.log(this.isLogged)
           this.$store.dispatch('login', this.user)
-          this.login = true
-          console.log(this.login)
+
         }
       }
     }
