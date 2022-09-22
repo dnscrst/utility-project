@@ -3,7 +3,7 @@ import axios from 'axios';
 import router from "@/router";
 
 export const state = {
-    user:{}
+    user:{},
 }
 export const actions = {
     async login ({commit}, user) {
@@ -28,4 +28,6 @@ export const mutations = {
     SET_USER(state, user) {
         state.user = user
     },
+
+
 }
