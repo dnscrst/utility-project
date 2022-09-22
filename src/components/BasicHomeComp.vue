@@ -53,7 +53,7 @@
 
 <style lang="scss" >
 @media only screen and (min-width: 0) {
-    .home-section{
+    .home-section {
         padding-top: 150px;
        .basic-icons {
             text-align: center;
@@ -68,9 +68,9 @@
 }
 }
 @media only screen and (min-width: 768px) {
-    .home-section{
+    .home-section {
         width: 100%;
-        .basic-icons{
+        .basic-icons {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
@@ -83,7 +83,7 @@
             gap: 50px;
             
         }
-        button{
+        button {
           color: white;
           background-color: rgb(27, 214, 255);
           padding: 7px 25px;
@@ -95,7 +95,7 @@
             transform: scale(1.1);
           }
         }
-        img{
+        img {
             width: 200px;
         }
     }

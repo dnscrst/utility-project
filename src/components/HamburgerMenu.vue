@@ -46,7 +46,7 @@ export default {
             transform: translateY(7px);
         }
 
-        @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
             display: none;
         }
     }

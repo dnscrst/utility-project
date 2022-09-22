@@ -55,6 +55,7 @@
 @import "src/styles/vars.scss";
 @media only screen and (min-width: 0px) {
     .register-page {
+        font-family: Helvetica, sans-serif;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -62,7 +63,7 @@
         form {
             position: relative;
             background: white;
-            width: 250px;
+            width: 350px;
             border-radius: 12px;
             text-align: center;
             padding-bottom: 10px;
@@ -83,7 +84,7 @@
                     outline: none;
                 }
             }
-            button{
+            button {
                 padding: 10px 20px;
                 border: none;
                 background-color: rgb(27, 214, 255);
@@ -92,7 +93,7 @@
                 color: white;
                 cursor: pointer;
             }
-            a{
+            a {
                 text-decoration: none;
                 color: rgb(27, 214, 255);
                 cursor: pointer;
