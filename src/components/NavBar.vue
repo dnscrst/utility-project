@@ -99,7 +99,7 @@
       position: fixed;
       width: 100%;
       background-color: white;
-      border-bottom: 2px solid gray;
+      box-shadow: 0 8px 15px rgb(50 50 50 / 25%);
       > div {
         padding: 0 16px 24px 0;
         display: flex;
