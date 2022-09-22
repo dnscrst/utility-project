@@ -16,7 +16,7 @@ export const actions = {
             await router.push('/')
 
         }catch(error){
-            window.alert('error')
+            console.log(error)
         }
     },
     async logout({commit}) {
@@ -37,7 +37,7 @@ export const mutations = {
     },
 
     SET_LOG(state, isLogged) {
-        console.log(isLogged)
+        //console.log(isLogged)
         state.isLogged = isLogged
     }
 

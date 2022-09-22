@@ -5,7 +5,7 @@
         <label class="fa-solid fa-envelope"></label>
         <br>
         <input
-            type="email"
+            type="Email"
             placeholder="Email"
             v-model="user.username">
         <br>
@@ -49,9 +49,8 @@
       },
       methods: {
         handleLogin() {
-          console.log(this.isLogged)
+          //console.log(this.isLogged)
           this.$store.dispatch('login', this.user)
-
         }
       }
     }
@@ -63,21 +62,22 @@
 @import "src/styles/vars.scss";
 @media only screen and (min-width: 0px) {
   .login-page {
+    font-family: Helvetica, sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    form{
+    form {
       background: white;
-      width: 250px;
+      width: 350px;
       border-radius: 12px;
       text-align: center;
       padding-bottom: 10px;
       box-shadow: 0 0 10px lightblue;
-      h2{
+      h2 {
         padding: 15px 0;
       }
-      input{
+      input {
         padding: 10px 0;
         border: none;
         border-bottom: 1px solid $light-grey;
@@ -91,8 +91,8 @@
         }
         
       }
-      button{
-        padding: 10px 20px;
+      button {
+        padding: 10px 30px;
         border: none;
         background-color: rgb(27, 214, 255);
         border-radius: 10px;
@@ -100,15 +100,19 @@
         color: white;
         cursor: pointer;
       }
-      a{
+      a {
         text-decoration: none;
         color: rgb(27, 214, 255);
         cursor: pointer;
+        font-size: 12px;
       }
       .fa-solid, .fa-envelope, 
       .fa-solid, .fa-lock {
         margin-right: 210px;
         margin-bottom: -30px;
+      }
+      p {
+        font-size: 12px;
       }
     }
 
@@ -116,7 +120,7 @@
   }
 @media only screen and (min-width: 768px) {
   .login-page {
-    form{
+    form {
       width: 400px;
       h2 {
         font-size: 34px;
@@ -133,12 +137,15 @@
         }
       }
       p {
-        font-size: 18px;
+        font-size: 16px;
       }
       .fa-solid, .fa-envelope, 
       .fa-solid, .fa-lock {
         margin-right: 240px;
         margin-bottom: -33px;
+      }
+      a{
+        font-size: 14px;
       }
     }
   }
