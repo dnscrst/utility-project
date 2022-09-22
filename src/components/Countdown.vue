@@ -25,29 +25,29 @@
             }
         },
         methods: {
-            Timerloop(){
+            Timerloop() {
                 this.count++
                 this.now = Math.trunc(new Date().getTime() / 1000)
                 this.count < 200 && setTimeout(this.Timerloop, 1000)
             }
         },
-        mounted(){
+        mounted() {
             this.Timerloop()
         },
         computed: {
-            seconds(){
+            seconds() {
                 return(this.modifiedDate - this.now) % 60
             },
-            minutes(){
+            minutes() {
                  return Math.trunc((this.modifiedDate - this.now) /60 ) %60
             },
-            hours(){
+            hours() {
                 return Math.trunc((this.modifiedDate - this.now) / 60 / 60) %24
             },
-            days(){
+            days() {
                 return Math.trunc((this.modifiedDate - this.now) /60 /60 / 24)
             },
-            modifiedDate(){
+            modifiedDate() {
                 return Math.trunc(Date.parse(this.date)/ 1000)
             }
         }
@@ -57,7 +57,7 @@
 <style lang="scss">
   @import '../styles/vars.scss';
   @media only screen and (min-width: 0){
-    .time-box{
+    .time-box {
         width: 80%;
         margin: 0 auto;
         display: flex;
@@ -86,7 +86,7 @@
         top: 22px;
         font-size: 12px;
     }
-    .points{
+    .points {
      zoom: 3;
      margin: -10px;
      margin-bottom: -7px;

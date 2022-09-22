@@ -88,6 +88,7 @@
  @import '../styles/vars.scss';
  @media only screen and (min-width: 0) {
     .nav-bar {
+      font-family: Helvetica, sans-serif;
       height: 60px;
       top: 0;
       left: 0;
@@ -116,7 +117,17 @@
         color: rgba($color: #000000, $alpha: 1.0);
         font-size: 18px;
       }
-      img{
+      img {
+        cursor: pointer;
+      }
+      button {
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background-color: rgb(27, 214, 255);
+        padding: 7px 35px;
+        border-radius: 33px;
+        border: none;
         cursor: pointer;
       }
     }
@@ -142,7 +153,7 @@
         margin: 0 15px;
         display: inline-block;
         transition: transform .2s;
-        &:hover{
+        &:hover {
           transform: scale(1.1);
           color: rgb(27, 214, 255);
         }
