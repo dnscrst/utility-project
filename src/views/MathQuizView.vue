@@ -4,7 +4,8 @@
     <Quiz v-if="startQuiz"
           class="absolute-z"
           @handleExit="startQuiz=false"
-    />
+          :data="data"/>
+
   </div>
 
 </template>
@@ -17,13 +18,37 @@ export default {
 
   data() {
       return {
-        startQuiz: false
+        startQuiz: false,
+        // quiz: {
+        //   id: null,
+        //   text: '' ,
+        //   responses: [
+        //     { a: '' },
+        //     { b: '' },
+        //     { c: '' },
+        //     { d: '' }
+        //   ]
+        // }
+
       }
     },
-
+    computed: {
+      data() {
+        return this.$store.state.data.quiz
+      }
+    },
+  // created() {
+  //   this.$store.dispatch("get_quiz")
+  // },
     methods: {
     handleQuiz() {
-      this.startQuiz = !this.startQuiz
+      if (!this.startQuiz) {
+        this.startQuiz = true
+        this.$store.dispatch("get_quiz")
+      }
+      else{
+        this.startQuiz = false
+      }
     }
     }
 }
@@ -38,7 +63,7 @@ export default {
     height: 100%;
     .start-button{
       text-align: center;
-      padding: 32px 0px;
+      padding: 32px 0;
       border: none;
       border-radius: 5px;
       background-color: lightblue;

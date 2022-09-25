@@ -4,8 +4,7 @@ import router from "@/router";
 
 export const state = {
     user:{},
-    isLogged: false
-
+    isLogged: false,
 }
 export const actions = {
     async login ({commit}, user) {
@@ -19,6 +18,21 @@ export const actions = {
             console.log(error)
         }
     },
+
+    async check_login({commit}, next){
+        if( state.user.name) {
+            next()
+            return
+        }
+        try{
+            const {data} = await axios.get(api.checkLogin)
+            commit('SET_USER', data)
+            next()
+        }catch (err) {
+            console.log(err)
+        }
+    },
+
     async logout({commit}) {
         try{
             await axios.delete(api.logout);
@@ -26,8 +40,8 @@ export const actions = {
             location.reload()
             await router.push('/')
 
-        }catch(error){
-            console.log(error)
+        }catch(err){
+            console.log(err)
         }
     }
     }
@@ -37,9 +51,9 @@ export const mutations = {
     },
 
     SET_LOG(state, isLogged) {
-        //console.log(isLogged)
         state.isLogged = isLogged
     }
+
 
 
 }
