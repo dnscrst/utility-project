@@ -1,36 +1,44 @@
 <template>
   <div class="math-quiz">
     <header>
-      <span>Answer: 0/10</span>
+      <span>Answer: {{ansId}}/10</span>
 <!--      <span id="answer-number">1/10</span>-->
       <button  @click="handleExit">&#x2716;</button>
     </header>
-    <div class="question-container">
-      <h2>question</h2>
+    <div class="question-container"
+         v-for="quiz in data"
+         :key="quiz.id"
+         v-if="quiz.id === ansId">
+      <h2>{{quiz.id}}. {{ quiz.text }}</h2>
       <div class="answers center">
         <input type="radio"
                name="answer"
-               value="1"
+               v-model="selectedAnswer"
+               value="a"
                id="a">
-        <label for="a" id="a">1</label>
+        <label for="a" id="a">{{quiz.responses[0].a}}</label>
         <input type="radio"
                name="answer"
-               value="2"
-               id="b">
-        <label for="b" id="b">2</label>
+               id="b"
+               value="b"
+               v-model="selectedAnswer">
+        <label for="b" id="b">{{quiz.responses[1].b}}</label>
         <input type="radio"
                name="answer"
-               value="3"
+               v-model="selectedAnswer"
+               value="c"
                id="c">
-        <label for="c" id="c">3</label>
+        <label for="c" id="c">{{quiz.responses[2].c}}</label>
         <input type="radio"
                name="answer"
-               value="4"
+               v-model="selectedAnswer"
+               value="d"
                id="d">
-        <label for="d" id="d">4</label>
+        <label for="d" id="d">{{quiz.responses[3].d}}</label>
       </div>
     </div>
-    <button id="send-answer">SEND ANSWER</button>
+    <button id="send-answer"
+            @click="handleAnswer">NEXT</button>
   </div>
 
 </template>
@@ -38,16 +46,34 @@
 <script>
 export default {
   name: 'Quiz',
+  props: {
+    data: Object
+  },
   data() {
-    return {
-
+    return{
+      ansId: 1,
+      selectedAnswer: '',
+      answers: []
     }
   },
-
   methods: {
     handleExit(){
       this.$emit('handleExit')
-    }
+    },
+    handleAnswer(){
+      const ans = {
+        id: this.ansId,
+        answered: this.selectedAnswer
+      }
+      this.answers.push(ans)
+      if(this.ansId < 10){
+        this.ansId +=1
+      }
+      else{
+        this.$store.dispatch('verify_ans', {answers: this.answers})
+
+      }
+    },
   }
 }
 </script>
@@ -65,7 +91,8 @@ export default {
     display: block;
     margin: 0 40px;
     border: 1px solid black;
-    top: -48px;
+    top: -50px;
+    right: -40px;
     header{
       padding: 20px;
       display: flex;
@@ -102,6 +129,9 @@ export default {
         padding: 30px 40px;
         input {
           display: none;
+          &:checked+label{
+            border: 4px solid green;
+          }
         }
         label {
           width: 100%;
@@ -113,6 +143,7 @@ export default {
           justify-content: center;
           cursor: pointer;
           margin-bottom: 13px;
+
         }
         #a{
           background-color: #2D70AE;
@@ -139,9 +170,10 @@ export default {
 @media only screen and (min-width: 1140px) {
   .math-quiz {
     width: 80%;
-    margin: 40px 40px;
+    margin: 40px 10%;
     border-radius: 10px;
     top: 0;
+    right: 0;
     .question-container{
       background-color: rgb(70 26 66);
       margin:10px 20px;
@@ -152,7 +184,7 @@ export default {
       }
       .answers {
         justify-content: space-between;
-        padding: 30px 40px;
+        padding: 50px 40px;
         flex-direction: row;
 
         label {

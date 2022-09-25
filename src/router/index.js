@@ -6,6 +6,7 @@ import MathQuizView from '../views/MathQuizView'
 import ToDoListView from '../views/ToDoListView'
 import LoginView from '../views/LoginView'
 import RegisterView from '../views/RegisterView'
+import store from "@/store";
 
 Vue.use(VueRouter)
 
@@ -23,12 +24,18 @@ const routes = [
   {
     path: '/mathquiz',
     name: 'mathquiz',
-    component: MathQuizView
+    component: MathQuizView,
+    meta: {
+      auth:true
+    }
   },
   {
     path: '/todolist',
     name: 'todolist',
-    component: ToDoListView
+    component: ToDoListView,
+    meta: {
+      auth:true
+    }
   },
   {
     path: '/login',
@@ -46,6 +53,14 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+router.beforeEach(async ({name, meta}, from, next) => {
+  if (name !== "login" && meta?.auth) {
+    await store.dispatch('check_login', next)
+  }
+  else {
+    next()
+  }
 })
 
 export default router

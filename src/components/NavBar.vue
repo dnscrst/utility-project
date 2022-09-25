@@ -17,8 +17,8 @@
                      :to="item.path">
                       <span @click="HandleChangeRoute">{{item.name}}</span>          
         </router-link>
-        <button v-if="!isLogged" @click="goToLogin">Log In</button>
-        <button v-else @click="handleLogout"> LOGOUT</button>
+        <button v-if="!isLogged" @click="goToLogin">Login</button>
+        <button v-else @click="handleLogout"> Logout</button>
       </nav>
   </header>
 </template>
@@ -66,9 +66,13 @@
         this.$refs.navBar.style.height = '60px'
       },
         goToHome() {
+          this.isOpen = false
+          this.$refs.navBar.style.height = '60px'
           return this.$router.push('/')
         },
         goToLogin() {
+          this.isOpen = false
+          this.$refs.navBar.style.height = '60px'
           return this.$router.push('/login')
 
         },
