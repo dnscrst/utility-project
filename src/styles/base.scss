@@ -6,9 +6,10 @@
     
   }
   body{ 
-    background: rgb(255,255,255);
-    background-repeat: no-repeat;
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 49%, rgba(187,186,186,1) 96%);
+    //background: rgb(255,255,255);
+    background-size: cover;
+    background: linear-gradient(to bottom right, #f5e3e6 0%, #d9e4f5 100%);
+    //background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 49%, rgba(187,186,186,1) 96%);
   }
   body, html {
     margin: 0;

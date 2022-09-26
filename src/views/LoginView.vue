@@ -5,6 +5,7 @@
         <label class="fa-solid fa-envelope"></label>
         <br>
         <input
+            name="email"
             type="Email"
             placeholder="Email"
             v-model="user.username">
@@ -12,7 +13,8 @@
         <br>
         <label class="fa-solid fa-lock"></label>
         <br>
-        <input type="password"
+        <input name="password"
+               type="password"
                placeholder="Password"
                v-model="user.password">
         <br>
