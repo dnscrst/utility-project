@@ -4,8 +4,7 @@ import router from "@/router";
 
 export const state = {
     user:{},
-    isLogged: false
-
+    isLogged: false,
 }
 export const actions = {
     async login ({commit}, user) {
@@ -16,8 +15,8 @@ export const actions = {
             await router.push('/')
 
         }catch(error){
-            console.log(error)
-        }
+           console.log(error)
+        }   
     },
     async logout({commit}) {
         try{
@@ -39,7 +38,6 @@ export const mutations = {
     SET_LOG(state, isLogged) {
         //console.log(isLogged)
         state.isLogged = isLogged
-    }
-
+    },
 
 }

@@ -66,9 +66,13 @@
         this.$refs.navBar.style.height = '60px'
       },
         goToHome() {
+          this.isOpen = false
+          this.$refs.navBar.style.height = '60px'
           return this.$router.push('/')
         },
         goToLogin() {
+          this.isOpen = false
+          this.$refs.navBar.style.height = '60px'
           return this.$router.push('/login')
 
         },
