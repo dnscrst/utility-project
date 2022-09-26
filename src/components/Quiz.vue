@@ -83,16 +83,17 @@ export default {
 @import "src/styles/base.scss";
 @media only screen and (min-width: 0) {
   .math-quiz{
+    //height: 100%;
     width: 100% ;
     height: auto;
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     display: block;
-    margin: 0 40px;
     border: 1px solid black;
     top: -50px;
     right: -40px;
+    border: 3px solid red;
     header{
       padding: 20px;
       display: flex;
@@ -120,6 +121,8 @@ export default {
       background-color: rgb(70 26 66);
       margin: 10px;
       border-radius: 5px;
+      z-index: 99;
+      margin-top: -30px;
       h2{
         padding: 20px;
         color: white;
@@ -170,7 +173,7 @@ export default {
 @media only screen and (min-width: 1140px) {
   .math-quiz {
     width: 80%;
-    margin: 40px 10%;
+    margin: 0 auto;
     border-radius: 10px;
     top: 0;
     right: 0;
