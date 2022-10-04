@@ -15,9 +15,10 @@ export const actions = {
             commit('SET_LOG', 'true')
             await router.push('/')
 
+denisa
         }catch(err){
             console.log(err)
-        }
+ main
     },
     async check_login({commit}, next){
         if( state.user.name) {
@@ -60,10 +61,11 @@ export const mutations = {
     SET_LOG(state, isLogged) {
         state.isLogged = isLogged
     },
+ denisa
     SET_ERROR(state, error) {
         state.error = error
     }
-
+main
 
 
 }

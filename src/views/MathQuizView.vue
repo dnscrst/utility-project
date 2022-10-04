@@ -1,8 +1,7 @@
 <template>
-  <div class="math-quiz-page center relative">
-   <button @click="handleQuiz" class="start-button">START QUIZ</button>
+  <div class="math-quiz-page center">
+   <button v-if="!startQuiz" @click="handleQuiz" class="start-button">START QUIZ</button>
     <Quiz v-if="startQuiz"
-          class="absolute-z"
           @handleExit="startQuiz=false"
           :data="data"/>
   </div>

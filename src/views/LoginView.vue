@@ -34,6 +34,7 @@
 </template>
 
 <script>
+
     export default {
       name: 'LoginView',
       data(){
@@ -53,7 +54,7 @@
         handleLogin() {
           //console.log(this.isLogged)
           this.$store.dispatch('login', this.user)
-        }
+        },
       }
     }
 </script>
