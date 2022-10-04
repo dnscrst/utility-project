@@ -4,7 +4,6 @@
     <Quiz v-if="startQuiz"
           @handleExit="startQuiz=false"
           :data="data"/>
-
   </div>
 
 </template>
@@ -18,17 +17,6 @@ export default {
   data() {
       return {
         startQuiz: false,
-        // quiz: {
-        //   id: null,
-        //   text: '' ,
-        //   responses: [
-        //     { a: '' },
-        //     { b: '' },
-        //     { c: '' },
-        //     { d: '' }
-        //   ]
-        // }
-
       }
     },
     computed: {
@@ -36,9 +24,6 @@ export default {
         return this.$store.state.data.quiz
       }
     },
-  // created() {
-  //   this.$store.dispatch("get_quiz")
-  // },
     methods: {
     handleQuiz() {
       if (!this.startQuiz) {
@@ -47,8 +32,8 @@ export default {
       }
       else{
         this.startQuiz = false
+       }
       }
-    }
     }
 }
 </script>
