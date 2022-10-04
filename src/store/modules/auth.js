@@ -46,7 +46,6 @@ export const actions = {
     },
     async register({commit}, {account}) {
         try{
-            console.log(account)
             const {data} = await axios.post(api.register, {account})
             console.log(data)
         }catch (error){
@@ -63,7 +62,6 @@ export const mutations = {
     },
     SET_ERROR(state, error) {
         state.error = error
-        console.log(error.message)
     }
 
 
