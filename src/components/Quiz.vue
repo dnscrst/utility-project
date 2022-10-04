@@ -2,7 +2,6 @@
   <div class="math-quiz">
     <header>
       <span>Answer: {{ansId}}/10</span>
-<!--      <span id="answer-number">1/10</span>-->
       <button  @click="handleExit">&#x2716;</button>
     </header>
     <div class="question-container"
@@ -38,43 +37,67 @@
       </div>
     </div>
     <button id="send-answer"
+            v-if=""
             @click="handleAnswer">NEXT</button>
   </div>
 
 </template>
 
 <script>
-export default {
-  name: 'Quiz',
-  props: {
-    data: Object
-  },
-  data() {
-    return{
-      ansId: 1,
-      selectedAnswer: '',
-      answers: []
-    }
-  },
-  methods: {
-    handleExit(){
-      this.$emit('handleExit')
+import loginView from "@/views/LoginView";
+  export default {
+    name: 'Quiz',
+    props: {
+      data: Object
     },
-    handleAnswer(){
-      const ans = {
-        id: this.ansId,
-        answered: this.selectedAnswer
+    data() {
+      return{
+        ansId: 1,
+        selectedAnswer: '',
+        answers: [],
+        correct: 0,
       }
-      this.answers.push(ans)
-      if(this.ansId < 10){
-        this.ansId +=1
+    },
+    computed: {
+      results() {
+        return this.$store.state.data.result
       }
-      else{
-        this.$store.dispatch('verify_ans', {answers: this.answers})
+    },
+    methods: {
+      handleExit(){
+        this.$emit('handleExit')
+        this.correct = 0
+      },
+      handleAnswer(){
+        const ans = {
+          id: this.ansId,
+          answered: this.selectedAnswer
+        }
+        this.answers.push(ans)
 
+        if(this.ansId < 10){
+          this.ansId +=1
+        }
+        else{
+          // console.log(this.answers)
+          this.getResponses()
+          this.showResult()
+
+        }
+      },
+      getResponses() {
+        this.$store.dispatch('verify_ans', {answers: this.answers})
+      },
+      showResult() {
+        this.correct = 0
+        this.results.forEach( (result) => {
+          console.log(result)
+      //     if (result.correctAnswer === true) {this.correct +=1}
+        })
+      //   console.log( this.correct)
       }
     },
-  }
+
 }
 </script>
 

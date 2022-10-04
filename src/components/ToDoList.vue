@@ -8,7 +8,10 @@
                            type="text" 
                            placeholder="Enter Task" 
                            id="input-control">
-                     <button @click="submitTask">Submit</button>
+                     <button type="button"
+                             @click="submitTask">
+                       Submit
+                     </button>
                 </label>
              </form>
         </div>
@@ -54,11 +57,10 @@
         }
        },
        methods: {
-        submitTask(e) {
+        submitTask() {
             if(this.task.length === 0) return;
-            e.preventDefault();
-
             if(this.editedTask === null){
+
                 this.tasks.push({
                 name: this.task,
                 status: 'To-do'
@@ -71,6 +73,10 @@
             }
 
             this.task = '';
+
+          this.$store.dispatch('addList', {list: this.tasks})
+          this.$store.dispatch('getList')
+          console.log(this.tasks)
         },
         deleteTask(index){
             this.$confirm("You won't be able to revert this",
@@ -89,6 +95,7 @@
           let newIndex = this.allStatuses.indexOf(this.tasks[index].status);
           if(++newIndex > 2) newIndex = 0;
           this.tasks[index].status = this.allStatuses[newIndex];
+
         },
        } 
     }
