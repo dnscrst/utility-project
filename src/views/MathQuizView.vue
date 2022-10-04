@@ -5,7 +5,6 @@
           class="absolute-z"
           @handleExit="startQuiz=false"
           :data="data"/>
-
   </div>
 
 </template>
@@ -34,8 +33,8 @@ export default {
       }
       else{
         this.startQuiz = false
+       }
       }
-    }
     }
 }
 </script>
