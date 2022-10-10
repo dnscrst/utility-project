@@ -2,27 +2,28 @@ import axios from "axios";
 import api from "@/store/api";
 
 export const state = {
-  tasksList:[]
+    tasks:''
 }
 export const actions = {
-    async addList ({list}) {
+    async addList({list}) {
         try {
-            const {data} = await axios.post(api.toDoList,{list})
-        }catch (error) {
+            const {data} = await axios.post(api.toDoList, {list})
+        } catch (error) {
             console.log(error)
         }
     },
-    async getList ({commit}, tasksList) {
+    async getList({commit}) {
         try {
-            const {data} = await axios.get(api.toDoList, tasksList)
+            const {data} = await axios.get(api.toDoList)
             commit('SET_LIST', data)
-        }catch (err) {
+        } catch (err) {
             console.log(err)
         }
-    }
+    },
 }
 export const mutations = {
-    SET_LIST(state, tasksList) {
-        state.tasksList = tasksList
+    SET_LIST(state, tasks) {
+        state.tasksList = tasks
+        console.log(tasks)
     }
 }
