@@ -5,20 +5,20 @@ import router from "@/router";
 export const state = {
     user:{},
     isLogged: false,
-    error: {}
+    error: {},
+    msg: '',
 }
 export const actions = {
     async login ({commit}, user) {
         try {
             const {data} = await axios.post(api.login, user);
             commit('SET_USER', data);
-            commit('SET_LOG', 'true')
+            commit('SET_LOG', 'true');
             await router.push('/')
 
-denisa
-        }catch(err){
+        }catch(err) {
             console.log(err)
- main
+        }
     },
     async check_login({commit}, next){
         if( state.user.name) {
@@ -47,8 +47,8 @@ denisa
     },
     async register({commit}, {account}) {
         try{
-            const {data} = await axios.post(api.register, {account})
-            console.log(data)
+            const {data} = await axios.post(api.register, {...account})
+            commit('SET_MSG', data.msg)
         }catch (error){
             console.log(error)
         }
@@ -61,11 +61,10 @@ export const mutations = {
     SET_LOG(state, isLogged) {
         state.isLogged = isLogged
     },
- denisa
     SET_ERROR(state, error) {
         state.error = error
-    }
-main
-
-
+    },
+    SET_MSG(state, msg) {
+        state.msg = msg
+    },
 }
