@@ -32,9 +32,14 @@
 </template>
 
 <script>
+<<<<<<< HEAD
   import Countdown from '@/components/Countdown.vue';
   import ToolBox from "@/components/ToolBox";
   import TeamPresentation from "@/components/TeamPresentation";
+=======
+import Countdown from '@/components/Countdown.vue';
+import BasicHomeComp from '@/components/BasicHomeComp.vue';
+>>>>>>> origin/main
     export default {
       name: "HomeView",
       components: {TeamPresentation, ToolBox, Countdown },
@@ -235,5 +240,16 @@
       }
     }
   }
+  body {
+    //background: url('../assets/BaseIcons/backgroundTLF.png') no-repeat center center fixed;
+    //-moz-background-size: cover;
+    //-webkit-background-size: cover;
+    //-o-background-size: cover;
+    //background-size: cover;
+    h1 {
+      text-align: center;
+      padding-top: 35px;
+  }
+ }
 }
 </style>
