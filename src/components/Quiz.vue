@@ -93,7 +93,6 @@ export default {
     border: 1px solid black;
     top: -50px;
     right: -40px;
-    border: 3px solid red;
     header{
       padding: 20px;
       display: flex;
@@ -102,6 +101,8 @@ export default {
       span{
         padding: 8px 12px;
         border-radius: 5px;
+        margin-bottom: 30px;
+
       }
       span:first-of-type{
         background-color: #2D9DA6;
@@ -177,7 +178,10 @@ export default {
     border-radius: 10px;
     top: 0;
     right: 0;
-    .question-container{
+    header > span {
+      margin-bottom: 0;
+    }
+    .question-container {
       background-color: rgb(70 26 66);
       margin:10px 20px;
       border-radius: 5px;
