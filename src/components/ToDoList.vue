@@ -18,13 +18,13 @@
         <div class="table-form">
           <table>
             <tr>
-                <th>Task</th>
+                <th>{{ tasksList }}</th>
                 <th>Status</th>
                 <th>#</th>
                 <th>#</th>
             </tr>
-            <tr v-for="(task,index) in tasks" :key="index">
-                <td>{{task.task}}</td>
+            <tr v-for="(task,index) in tasksList" :key="index">
+                <td>{{task}}</td>
                 <td><span @click="changeStatus(index)">
                           {{task.status}}
                     </span></td>
@@ -53,14 +53,20 @@
             task: '',
             editedTask: null,
             allStatuses: ['To-do', 'In-progress', 'Finished'],
-            tasks: []
+            tasksList: ''
         }
        },
       // computed: {
-      //   tasks() {
-      //       return
+      //   tasksList() {
+      //       return this.$store.state.auth.tasks
       //   }
       // },
+      created() {
+          this.$store.dispatch('getList')
+        this.tasksList = this.$store.state.auth.tasks
+        console.log(this.tasksList)
+
+      },
       methods: {
         submitTask() {
           //   if(this.task.length === 0) return;
@@ -80,10 +86,11 @@
           //   this.task = '';
           //
           // this.$store.dispatch('addList', {list: this.tasks})
-          this.$store.dispatch('getList')
           // this.$store.commit('SET_LIST')
-          this.tasks = this.$store.state.list.tasks
-          console.log(this.tasks)
+          // this.tasksList =
+          // console.log(this.tasksList)
+
+
 
         },
         deleteTask(index){
@@ -94,8 +101,8 @@
             //                 this.tasks.splice(index, 1);
             //                })
         },
-
         editTask(index){
+
             // this.task = this.tasks[index].name;
             // this.editedTask = index;
         },

@@ -57,6 +57,8 @@
       methods: {
         handleLogin() {
           this.$store.dispatch('login', this.user)
+          this.$store.dispatch('getList')
+
         },
       }
     }

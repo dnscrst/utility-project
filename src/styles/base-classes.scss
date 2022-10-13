@@ -1,16 +1,19 @@
-.center{
+.center {
   display: flex;
   justify-content: center;
   text-align: center;
 }
-.main-grid{
+.main-grid {
   padding-top: 50px;
 }
-.relative{
+.relative {
   position: relative;
 }
-.absolute-z{
+.absolute-z {
   position: absolute;
   z-index: 99;
   
+}
+.m-auto {
+  margin: 0 auto;
 }

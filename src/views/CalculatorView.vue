@@ -1,6 +1,5 @@
 <template>
   <div class="calculator-page center">
-<!--    <h1>Calculator Future</h1>-->
     <div class="calculator center">
       <span class="center display"> {{current || '0'}}</span>
       <button
