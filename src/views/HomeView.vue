@@ -15,95 +15,42 @@
 <!--      <Countdown date="13 January, 2023" />-->
 <!--      <BasicHomeComp />-->
     </main>
-    <div class="home-tools center">
-      <div class="dark-blue">
-        <figure>
-          <img alt="tool-icon" src="../assets/BaseIcons/calculator.png">
-        </figure>
-        <h3>Calculator</h3>
-        <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-        <router-link to="/calculator">
-          <img class="arrow"
-               src="../assets/BaseIcons/dark-arrow.png">
-        </router-link>
-      </div>
-      <div class="light-blue">
-        <figure>
-          <img alt="tool-icon" src="../assets/BaseIcons/checklist.png">
-        </figure>
-        <h3>To do list</h3>
-        <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-        <router-link to="/todolist">
-          <img class="arrow"
-               src="../assets/BaseIcons/light-arrow.png">
-        </router-link>
-      </div>
-      <div class="dark-blue">
-        <figure>
-          <img alt="tool-icon" src="../assets/BaseIcons/answer.png">
-        </figure>
-        <h3>Math quiz</h3>
-        <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-        <router-link to="/mathquiz">
-          <img class="arrow"
-               src="../assets/BaseIcons/dark-arrow.png">
-        </router-link>
-      </div>
-    </div>
+    <ToolBox/>
     <div class="welcome-message center">
-      <h3>Welcome Message</h3>
-      <p>Amet luctus venenatis lectus magna fringilla urna
-        porttitor rhoncus dolor. A lacus vestibulum sed arcu non.
-        Dolor magna eget est lorem ipsum dolor sit amet consectetur.
-        Mauris pellentesque pulvinar pellentesque habitant morbi
-        tristique senectus. Nec feugiat nisl pretium fusce id.
-        Justo laoreet sit amet cursus sit amet.
-        Porta non pulvinar neque laoreet suspendisse interdum consectetur libero.</p>
+      <h3>{{ welcome.title }}</h3>
+      <p>{{welcome.body}}</p>
       <button>LEARN MORE</button>
     </div>
     <div class="team-presentation center">
       <h3>Meet The Team</h3>
       <h3>Our Professionals</h3>
-      <div class="person-card center">
-        <div>
-          <figure>
-            <img src="../assets/denisa.jpg">
-          </figure>
-          <h4>Denisa Cirstea</h4>
-          <h5>frontend developer</h5>
-          <p>Glavi amet ritnisl libero molestie ante ut fringilla purus
-            eros quis glavrid from dolor amet iquam lorem bibendum</p>
-          <a href="https://www.linkedin.com/in/denisa-cirstea-978a081b6/">
-            <img src="../assets/BaseIcons/linkedin.jpg">
-          </a>
-        </div>
-        <div>
-          <figure>
-            <img src="../assets/denisa.jpg">
-          </figure>
-          <h4>Iulian Negrila</h4>
-          <h5>frontend developer</h5>
-          <p>Glavi amet ritnisl libero molestie ante ut fringilla purus
-            eros quis glavrid from dolor amet iquam lorem bibendum</p>
-          <a href="https://www.linkedin.com/in/iulian-marinel-negrila/">
-            <img src="../assets/BaseIcons/linkedin.jpg">
-          </a>
-        </div>
-      </div>
+      <TeamPresentation :presentation='presentation'/>
     </div>
     <footer>
-
     </footer>
-
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
+  import Countdown from '@/components/Countdown.vue';
+  import ToolBox from "@/components/ToolBox";
+  import TeamPresentation from "@/components/TeamPresentation";
+=======
 import Countdown from '@/components/Countdown.vue';
 import BasicHomeComp from '@/components/BasicHomeComp.vue';
+>>>>>>> origin/main
     export default {
       name: "HomeView",
-      components: { Countdown, BasicHomeComp }
+      components: {TeamPresentation, ToolBox, Countdown },
+      computed: {
+        welcome() {
+          return this.$store.state.welcome
+        },
+        presentation() {
+          return this.$store.state.presentation
+        }
+      }
   }
 </script>
 
@@ -113,7 +60,7 @@ import BasicHomeComp from '@/components/BasicHomeComp.vue';
 @import "src/styles/vars.scss";
   @media only screen and (min-width: 0){
     .home-page{
-      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation{
+      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation, .person-card {
         flex-direction: column;
       }
       button {

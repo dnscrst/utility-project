@@ -97,11 +97,6 @@
         this.getResponses()
 
       },
-      // finishQuiz() {
-      //   this.handleAnswer()
-      //
-      //
-      // },
       handleResult(){
         this.handleAnswer()
         this.getResults()
@@ -125,7 +120,6 @@
           console.log( this.correct)
       }
     },
-
 }
 </script>
 
@@ -171,10 +165,9 @@
     }
     .question-container, .result{
       background-color: rgb(70 26 66);
-      margin: 10px;
+      margin: -20px 10px 10px;
       border-radius: 5px;
       z-index: 99;
-      margin-top: -30px;
       h2{
         padding: 20px;
         color: white;
