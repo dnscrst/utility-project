@@ -5,9 +5,7 @@ import router from "@/router";
 export const state = {
     user:{},
     isLogged: false,
-
     errors: '',
-
     error: {},
     msg: '',
 
@@ -26,11 +24,7 @@ export const actions = {
            commit('SET_SHOWERROR', error.response.data.message.reason)
         }   
 
-        }catch(err) {
-            console.log(err)
-        }
-
-    },
+        },
     async check_login({commit}, next){
         if( state.user.name) {
             next()
@@ -72,15 +66,10 @@ export const mutations = {
     SET_LOG(state, isLogged) {
         state.isLogged = isLogged
     },
-
-
     SET_SHOWERROR(state, error) {
         state.errors = error
         console.log(state.errors);
-    }
-
-
-
+    },
     SET_ERROR(state, error) {
         state.error = error
     },
