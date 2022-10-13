@@ -1,51 +1,78 @@
 <template>
     <div class="register-page">
-        <form @submit.prevent="handleRegister">
+      <div v-if="$store.state.auth.msg === 'account created'">
+        <p>
+          Account created!
+        </p>
+        <router-link to="/login">Go to Login</router-link>
+      </div>
+        <form  v-else @submit.prevent="handleRegister">
             <h2>Register</h2>
             <i class="fa-solid fa-user"></i>
             <br>
             <input type="text"
+                   v-model="account.firstName"
                    placeholder="First Name">
             <br>
             <br>
             <i class="fa-solid fa-user"></i>
             <br>
             <input type="text"
+                   v-model="account.lastName"
                    placeholder="Second Name">
             <br>
+          <br>
+          <i class="fa-solid fa-globe"></i>
+          <br>
+          <input type="text"
+                 v-model="account.country"
+                 placeholder="County">
+          <br>
             <br>
             <i class="fa-solid fa-envelope"></i>
             <br>
             <input type="email"
+                   v-model="account.email"
                    placeholder="Email">
-            <br>
-            <br>
-            <i class="fa-solid fa-globe"></i>
-            <br>
-            <input type="text"
-                   placeholder="County">
             <br>
             <br>
             <i class="fa-solid fa-lock"></i>
             <br>
             <input type="password"
+                   key="password"
+                   v-model="account.password"
                    placeholder="Password">
             <br>
             <br>
-            <i class="fa-solid fa-lock"></i>
-            <br>
-            <input type="passsword"
-                   placeholder="Confirm Password">
-            <br>
-            <br>
-            <button>Register</button>
+            <button @submit.prevent="handleRegister">Register</button>
         </form>
+
+
     </div>
 </template>
 
 <script>
     export default {
         name: 'RegisterView',
+        data() {
+          return{
+            account: {
+              email: '',
+              password: '',
+              firstName: '',
+              lastName: '',
+              country: ''
+            },
+            created: false
+          }
+        },
+
+      methods: {
+        handleRegister() {
+          console.log(this.account)
+          this.$store.dispatch('register', {account: this.account})
+        }
+      }
     }
 </script>
 

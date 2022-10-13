@@ -8,7 +8,10 @@
                            type="text" 
                            placeholder="Enter Task" 
                            id="input-control">
-                     <button @click="submitTask">Submit</button>
+                     <button type="button"
+                             @click="submitTask">
+                       Submit
+                     </button>
                 </label>
              </form>
         </div>
@@ -21,7 +24,7 @@
                 <th>#</th>
             </tr>
             <tr v-for="(task,index) in tasks" :key="index">
-                <td>{{task.name}}</td>
+                <td>{{task.task}}</td>
                 <td><span @click="changeStatus(index)">
                           {{task.status}}
                     </span></td>
@@ -53,44 +56,56 @@
             tasks: []
         }
        },
-       methods: {
-        submitTask(e) {
-            if(this.task.length === 0) return;
-            e.preventDefault();
+      // computed: {
+      //   tasks() {
+      //       return
+      //   }
+      // },
+      methods: {
+        submitTask() {
+          //   if(this.task.length === 0) return;
+          //   if(this.editedTask === null){
+          //
+          //       this.tasks.push({
+          //       name: this.task,
+          //       status: 'To-do'
+          //     }
+          //    );
+          //   }
+          //   else{
+          //       this.tasks[this.editedTask].name = this.task;
+          //       this.editedTask = null;
+          //   }
+          //
+          //   this.task = '';
+          //
+          // this.$store.dispatch('addList', {list: this.tasks})
+          this.$store.dispatch('getList')
+          // this.$store.commit('SET_LIST')
+          this.tasks = this.$store.state.list.tasks
+          console.log(this.tasks)
 
-            if(this.editedTask === null){
-                this.tasks.push({
-                name: this.task,
-                status: 'To-do'
-              }
-             );
-            }
-            else{
-                this.tasks[this.editedTask].name = this.task;
-                this.editedTask = null;
-            }
-
-            this.task = '';
         },
         deleteTask(index){
-            this.$confirm("You won't be able to revert this",
-                          "Are you sure?",
-                           'warning',
-                           ).then(()=>{
-                            this.tasks.splice(index, 1);
-                           })
+            // this.$confirm("You won't be able to revert this",
+            //               "Are you sure?",
+            //                'warning',
+            //                ).then(()=>{
+            //                 this.tasks.splice(index, 1);
+            //                })
         },
-                
+
         editTask(index){
-            this.task = this.tasks[index].name;
-            this.editedTask = index;
+            // this.task = this.tasks[index].name;
+            // this.editedTask = index;
         },
         changeStatus(index){
-          let newIndex = this.allStatuses.indexOf(this.tasks[index].status);
-          if(++newIndex > 2) newIndex = 0;
-          this.tasks[index].status = this.allStatuses[newIndex];
+          // let newIndex = this.allStatuses.indexOf(this.tasks[index].status);
+          // if(++newIndex > 2) newIndex = 0;
+          // this.tasks[index].status = this.allStatuses[newIndex];
+
         },
-       } 
+       }
     }
 </script>
 

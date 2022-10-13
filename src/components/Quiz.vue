@@ -1,80 +1,131 @@
 <template>
-  <div class="math-quiz">
-    <header>
-      <span>Answer: {{ansId}}/10</span>
-<!--      <span id="answer-number">1/10</span>-->
-      <button  @click="handleExit">&#x2716;</button>
-    </header>
-    <div class="question-container"
-         v-for="quiz in data"
-         :key="quiz.id"
-         v-if="quiz.id === ansId">
-      <h2>{{quiz.id}}. {{ quiz.text }}</h2>
-      <div class="answers center">
-        <input type="radio"
-               name="answer"
-               v-model="selectedAnswer"
-               value="a"
-               id="a">
-        <label for="a" id="a">{{quiz.responses[0].a}}</label>
-        <input type="radio"
-               name="answer"
-               id="b"
-               value="b"
-               v-model="selectedAnswer">
-        <label for="b" id="b">{{quiz.responses[1].b}}</label>
-        <input type="radio"
-               name="answer"
-               v-model="selectedAnswer"
-               value="c"
-               id="c">
-        <label for="c" id="c">{{quiz.responses[2].c}}</label>
-        <input type="radio"
-               name="answer"
-               v-model="selectedAnswer"
-               value="d"
-               id="d">
-        <label for="d" id="d">{{quiz.responses[3].d}}</label>
-      </div>
+  <div class="quiz">
+    <div v-if="this.ansId <= 10" class="math-quiz">
+      <header >
+        <span>Answer: {{ansId}}/10</span>
+        <button  @click="handleExit">&#x2716;</button>
+      </header>
+      <div class="question-container"
+           v-for="quiz in data"
+           :key="quiz.id"
+           v-if="quiz.id === ansId && !finished">
+        <h2>{{quiz.id}}. {{ quiz.text }}</h2>
+        <div class="answers center">
+          <input type="radio"
+                 name="answer"
+                 v-model="selectedAnswer"
+                 value="a"
+                 id="a">
+          <label for="a" id="a">{{quiz.responses[0].a}}</label>
+          <input type="radio"
+                 name="answer"
+                 id="b"
+                 value="b"
+                 v-model="selectedAnswer">
+          <label for="b" id="b">{{quiz.responses[1].b}}</label>
+          <input type="radio"
+                 name="answer"
+                 v-model="selectedAnswer"
+                 value="c"
+                 id="c">
+          <label for="c" id="c">{{quiz.responses[2].c}}</label>
+          <input type="radio"
+                 name="answer"
+                 v-model="selectedAnswer"
+                 value="d"
+                 id="d">
+          <label for="d" id="d">{{quiz.responses[3].d}}</label>
+        </div>
+        </div>
+      <button id="send-answer"
+              @click="handleAnswer">NEXT</button>
     </div>
-    <button id="send-answer"
-            @click="handleAnswer">NEXT</button>
+    <div v-if="this.ansId > 10" class="quiz-finish">
+      <button id="send-answer"
+              @click="handleResult">
+        FINISH
+      </button>
+    </div>
   </div>
-
 </template>
 
 <script>
-export default {
-  name: 'Quiz',
-  props: {
-    data: Object
-  },
-  data() {
-    return{
-      ansId: 1,
-      selectedAnswer: '',
-      answers: []
-    }
-  },
-  methods: {
-    handleExit(){
-      this.$emit('handleExit')
+  export default {
+    name: 'Quiz',
+    props: {
+      data: Object
     },
-    handleAnswer(){
-      const ans = {
-        id: this.ansId,
-        answered: this.selectedAnswer
+    data() {
+      return{
+        ansId: 11,
+        selectedAnswer: '',
+        answers: [],
+        results: '',
+        correct: 0,
+        finished: false
       }
-      this.answers.push(ans)
-      if(this.ansId < 10){
-        this.ansId +=1
-      }
-      else{
-        this.$store.dispatch('verify_ans', {answers: this.answers})
+    },
+    methods: {
+      showAlert() {
+        this.$swal.fire({
+          title: this.correct + '/10 correct answers',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
+        this.handleExit()
+      },
+      handleExit(){
+        this.$emit('handleExit')
+        this.correct = 0
 
+      },
+      handleAnswer(){
+        // document.getElementsByTagName('label').style.border = 'none'
+        const ans = {
+          id: this.ansId,
+          answered: this.selectedAnswer
+        }
+        this.answers.push(ans)
+
+        if(this.ansId <= 10){
+          this.ansId +=1
+        }
+        this.getResponses()
+
+      },
+      // finishQuiz() {
+      //   this.handleAnswer()
+      //
+      //
+      // },
+      handleResult(){
+        this.handleAnswer()
+        this.getResults()
+        this.showResult()
+        this.finished = true
+        this.showAlert()
+      },
+      getResponses() {
+        this.$store.dispatch('verify_ans', {answers: this.answers})
+      },
+      getResults() {
+        console.log(this.$store.state.data.result)
+         this.results = this.$store.state.data.result
+        // console.log(this.results)
+      },
+      showResult() {
+        this.correct = 0
+        this.results.forEach( (result) => {
+           if (result.correctAnswer === true) {this.correct +=1}
+        })
+          console.log( this.correct)
       }
     },
-  }
+
 }
 </script>
 
@@ -118,7 +169,7 @@ export default {
         height: 26px;
       }
     }
-    .question-container{
+    .question-container, .result{
       background-color: rgb(70 26 66);
       margin: 10px;
       border-radius: 5px;
@@ -147,7 +198,6 @@ export default {
           justify-content: center;
           cursor: pointer;
           margin-bottom: 13px;
-
         }
         #a{
           background-color: #2D70AE;
@@ -163,10 +213,16 @@ export default {
         }
       }
     }
+  }
+  .quiz-finish{
+    padding: 3%;
+    background-color: black;
+    margin: 0 15%;
     #send-answer{
-      padding: 8px 12px;
-      margin: 15px;
-      border-radius: 5px;
+      background-color: rgb(70 26 66);
+      color: white;
+      padding: 18% 33%;
+
     }
   }
 }
@@ -200,9 +256,13 @@ export default {
           margin-bottom: 0;
         }
       }
+    }
+
+
+    .animate__animated .animate__fadeInDown {
+      button{
+        background-color: black;
       }
-    #send-answer{
-      margin-bottom: 30px;
     }
   }
 }

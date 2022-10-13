@@ -2,9 +2,10 @@
     <div class="home-section">
         <section >
           <div class="basic-icons">
-                <figure v-for="item in images">
-                    <img :src="item.url" alt="">
-                </figure>
+                <div v-for="item in pages">
+                  <router-link :to="item.page">
+                    <img :src="item.url" alt=""></router-link>
+                </div>
           </div>
           <div class="component-button">
             <button @click="goCalculator">Calculator</button>
@@ -20,15 +21,18 @@
         name: 'BasicHomeComp',
         data() {
             return{
-                images:[
+                pages:[
                     {
-                        url: require('../assets/BaseIcons/Calculator.png')
+                      url: require('../assets/BaseIcons/Calculator.png'),
+                      page: '/calculator'
                     },
                     {
-                        url: require('../assets/BaseIcons/ToDoList.png')
+                      url: require('../assets/BaseIcons/ToDoList.png'),
+                      page: '/todolist'
                     },
                     {
-                        url: require('../assets/BaseIcons/MathQuiz.png')
+                      url: require('../assets/BaseIcons/MathQuiz.png'),
+                      page: '/mathquiz'
                     },  
                 ]           
 
