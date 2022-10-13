@@ -53,11 +53,11 @@
   export default {
     name: 'Quiz',
     props: {
-      data: Object
+      data: Object,
     },
     data() {
       return{
-        ansId: 11,
+        ansId: 1,
         selectedAnswer: '',
         answers: [],
         results: '',

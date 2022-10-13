@@ -7,6 +7,7 @@ export const state = {
     isLogged: false,
     error: {},
     msg: '',
+    tasks: ''
 }
 export const actions = {
     async login ({commit}, user) {
@@ -52,7 +53,17 @@ export const actions = {
         }catch (error){
             console.log(error)
         }
-    }
+    },
+    async getList({commit}) {
+        try {
+            const {data} = await axios.get(api.toDoList)
+            commit('SET_LIST', data)
+            console.log(data)
+        } catch (err) {
+            console.log(err)
+        }
+    },
+
 }
 export const mutations = {
     SET_USER(state, user) {
@@ -67,4 +78,8 @@ export const mutations = {
     SET_MSG(state, msg) {
         state.msg = msg
     },
+    SET_LIST(state, tasks) {
+        state.tasksList = tasks
+        console.log(tasks)
+    }
 }

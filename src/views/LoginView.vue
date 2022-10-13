@@ -54,6 +54,8 @@
         handleLogin() {
           //console.log(this.isLogged)
           this.$store.dispatch('login', this.user)
+          this.$store.dispatch('getList')
+
         },
       }
     }

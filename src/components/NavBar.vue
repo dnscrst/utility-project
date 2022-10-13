@@ -54,8 +54,6 @@
           }
         },
 
-
-
       methods: {
         handleHambMenu() {
           this.isOpen = !this.isOpen
@@ -74,18 +72,13 @@
           this.isOpen = false
           this.$refs.navBar.style.height = '60px'
           return this.$router.push('/login')
-
         },
-
         handleLogout() {
           this.$store.dispatch('logout')
-
           console.log(this.isLogged)
         },
-
       }
     }
-
 </script>
 
 <style lang="scss">
@@ -103,7 +96,6 @@
       position: fixed;
       width: 100%;
       background-color: white;
-      box-shadow: 0 8px 15px rgb(50 50 50 / 25%);
       > div {
         padding: 0 16px 24px 0;
         display: flex;
@@ -123,6 +115,7 @@
       }
       img {
         cursor: pointer;
+        width: 60px;
       }
       button {
         font-size: 16px;
@@ -148,13 +141,10 @@
       padding-top: 30px;
     }
     nav {
-      margin: 0;
+      margin: 0 30px 0;
 
-      margin-top: 0;
-      margin-right: 30px;
-      
       a {
-        margin: 0 15px;
+        margin: 0 12px;
         display: inline-block;
         transition: transform .2s;
         &:hover {
@@ -162,12 +152,12 @@
           color: rgb(27, 214, 255);
         }
         &:nth-child(3) {
-          margin-right: 50px;
+          margin-right: 20px;
         }
       }
       button {
         color: white;
-        background-color: rgb(27, 214, 255);
+        background-color: $light-blue;
         padding: 7px 20px;
         border-radius: 33px;
         border: none;

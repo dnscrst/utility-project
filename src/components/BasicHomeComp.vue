@@ -23,15 +23,15 @@
             return{
                 pages:[
                     {
-                      url: require('../assets/BaseIcons/Calculator.png'),
+                      // url: require('../assets/BaseIcons/Calculator.png'),
                       page: '/calculator'
                     },
                     {
-                      url: require('../assets/BaseIcons/ToDoList.png'),
+                      // url: require('../assets/BaseIcons/ToDoList.png'),
                       page: '/todolist'
                     },
                     {
-                      url: require('../assets/BaseIcons/MathQuiz.png'),
+                      // url: require('../assets/BaseIcons/MathQuiz.png'),
                       page: '/mathquiz'
                     },  
                 ]           
