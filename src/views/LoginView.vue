@@ -24,6 +24,7 @@
         <br>
         <br>
         <button>Login</button>
+        <p v-if="error">{{error}}</p>
         <br><br>
         <p>Don't have an acccount?</p>
         <span>
@@ -48,11 +49,13 @@
       computed: {
         isLogged() {
          return this.$store.state.auth.isLogged;
-        }
+        },
+        error() {
+          return this.$store.state.auth.errors;
+        },
       },
       methods: {
         handleLogin() {
-          //console.log(this.isLogged)
           this.$store.dispatch('login', this.user)
           this.$store.dispatch('getList')
 

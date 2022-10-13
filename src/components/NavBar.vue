@@ -25,7 +25,6 @@
 
 <script>
   import HamburgerMenu from "./HamburgerMenu.vue";
-  import LoginView from "@/views/LoginView";
       export default {
         name: "NavBar",
         components: {HamburgerMenu},
