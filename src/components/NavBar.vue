@@ -52,7 +52,6 @@
             return this.$store.state.auth.isLogged
           }
         },
-
       methods: {
         handleHambMenu() {
           this.isOpen = !this.isOpen
@@ -127,8 +126,6 @@
         cursor: pointer;
       }
     }
-
-
 }
 @media only screen and (min-width: 768px) {
   .nav-bar {
