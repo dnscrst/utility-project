@@ -92,7 +92,6 @@
       </div>
     </div>
     <footer>
-
     </footer>
 
   </div>
@@ -113,7 +112,7 @@ import BasicHomeComp from '@/components/BasicHomeComp.vue';
 @import "src/styles/vars.scss";
   @media only screen and (min-width: 0){
     .home-page{
-      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation{
+      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation, .person-card{
         flex-direction: column;
       }
       button {
@@ -261,6 +260,7 @@ import BasicHomeComp from '@/components/BasicHomeComp.vue';
     .home-tools, .person-card {
       flex-direction: row;
       flex-wrap: wrap;
+      
     }
     .home-tools {
       max-width: 1070px;

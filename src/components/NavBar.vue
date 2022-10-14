@@ -120,7 +120,7 @@
         font-size: 16px;
         font-weight: bold;
         color: white;
-        background-color: rgb(27, 214, 255);
+        background-color: $light-blue;
         padding: 7px 35px;
         border-radius: 33px;
         border: none;
