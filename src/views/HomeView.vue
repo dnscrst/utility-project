@@ -32,11 +32,12 @@
 </template>
 
 <script>
-  import Countdown from '@/components/Countdown.vue';
+
   import ToolBox from "@/components/ToolBox";
   import TeamPresentation from "@/components/TeamPresentation";
-
+  import Countdown from '@/components/Countdown.vue';
     export default {
+      
       name: "HomeView",
       components: {TeamPresentation, ToolBox, Countdown },
       computed: {
