@@ -91,9 +91,7 @@
         </div>
       </div>
     </div>
-    <footer>
-
-    </footer>
+      <Footer />
 
   </div>
 </template>
@@ -101,9 +99,10 @@
 <script>
 import Countdown from '@/components/Countdown.vue';
 import BasicHomeComp from '@/components/BasicHomeComp.vue';
+import Footer from '@/components/Footer.vue';
     export default {
       name: "HomeView",
-      components: { Countdown, BasicHomeComp }
+      components: { Countdown, BasicHomeComp, Footer }
   }
 </script>
 
@@ -113,7 +112,7 @@ import BasicHomeComp from '@/components/BasicHomeComp.vue';
 @import "src/styles/vars.scss";
   @media only screen and (min-width: 0){
     .home-page{
-      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation{
+      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation, .person-card{
         flex-direction: column;
       }
       button {

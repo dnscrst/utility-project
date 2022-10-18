@@ -6,7 +6,6 @@ import MathQuizView from '../views/MathQuizView'
 import ToDoListView from '../views/ToDoListView'
 import LoginView from '../views/LoginView'
 import RegisterView from '../views/RegisterView'
-import TestView from '../views/TestView'
 import store from "@/store";
 
 Vue.use(VueRouter)
@@ -47,11 +46,6 @@ const routes = [
     path: '/register',
     name: 'register',
     component: RegisterView
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: TestView
   },
 ]
 

@@ -69,13 +69,20 @@
 @import "src/styles/base.scss";
 @import "src/styles/vars.scss";
 @media only screen and (min-width: 0px) {
-  .login-page {
+.login-page {
+    height: 80%;
     font-family: Helvetica, sans-serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    background-image: url("../assets/home-background.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #243f56;
     form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background: white;
       width: 350px;
       border-radius: 12px;
@@ -96,8 +103,7 @@
           box-shadow: 0 0 3px lightblue;
           outline-offset: 0px;
           outline: none;
-        }
-        
+        } 
       }
       button {
         padding: 10px 30px;
