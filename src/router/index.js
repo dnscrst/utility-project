@@ -8,6 +8,7 @@ import LoginView from '../views/LoginView'
 import RegisterView from '../views/RegisterView'
 import TestView from '../views/TestView'
 import store from "@/store";
+import NotAuth from "@/views/NotAuth";
 
 Vue.use(VueRouter)
 
@@ -53,6 +54,11 @@ const routes = [
     name: 'test',
     component: TestView
   },
+  {
+    path: '/not-auth',
+    name: 'not-auth',
+    component: NotAuth
+  },
 ]
 
 const router = new VueRouter({
@@ -65,7 +71,7 @@ router.beforeEach(async ({name, meta}, from, next) => {
     await store.dispatch('check_login', next)
   }
   else {
-    next()
+    next ()
   }
 })
 

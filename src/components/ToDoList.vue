@@ -4,7 +4,7 @@
         <div class="submit-form">
              <form>
                 <label>
-                    <input v-model="task" 
+                    <input v-model="name"
                            type="text" 
                            placeholder="Enter Task" 
                            id="input-control">
@@ -18,13 +18,13 @@
         <div class="table-form">
           <table>
             <tr>
-                <th>{{ tasksList }}</th>
+                <th>Task</th>
                 <th>Status</th>
-                <th>#</th>
-                <th>#</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <tr v-for="(task,index) in tasksList" :key="index">
-                <td>{{task}}</td>
+                <td>{{task.task}}</td>
                 <td><span @click="changeStatus(index)">
                           {{task.status}}
                     </span></td>
@@ -47,51 +47,37 @@
 
 <script>
     export default {
-        name: 'ToDoList',
-       data() {
-        return{
-            task: '',
+      name: 'ToDoList',
+      data() {
+        return {
+            name: '',
+            list: {
+              task: '',
+              date: '',
+              status: 'to do'
+            },
             editedTask: null,
-            allStatuses: ['To-do', 'In-progress', 'Finished'],
-            tasksList: ''
+            tasks: [],
+            allStatuses: ['to do', 'in progress', 'finished'],
         }
        },
-      // computed: {
-      //   tasksList() {
-      //       return this.$store.state.auth.tasks
-      //   }
-      // },
       created() {
-          this.$store.dispatch('getList')
-        this.tasksList = this.$store.state.auth.tasks
-        console.log(this.tasksList)
-
+        this.$store.dispatch('getList')
+      },
+      computed: {
+        tasksList() {
+            return this.$store.getters.rightTasks
+        }
       },
       methods: {
         submitTask() {
-          //   if(this.task.length === 0) return;
-          //   if(this.editedTask === null){
-          //
-          //       this.tasks.push({
-          //       name: this.task,
-          //       status: 'To-do'
-          //     }
-          //    );
-          //   }
-          //   else{
-          //       this.tasks[this.editedTask].name = this.task;
-          //       this.editedTask = null;
-          //   }
-          //
-          //   this.task = '';
-          //
-          // this.$store.dispatch('addList', {list: this.tasks})
-          // this.$store.commit('SET_LIST')
-          // this.tasksList =
-          // console.log(this.tasksList)
-
-
-
+            if(this.name.length !== 0) {
+              this.list.task = this.name
+              this.$store.dispatch('addTask', {task: this.list})
+              this.$store.dispatch('getList')
+            }
+            else return
+            this.name = '';
         },
         deleteTask(index){
             // this.$confirm("You won't be able to revert this",
@@ -117,77 +103,81 @@
 </script>
 
 <style lang="scss">
-@import '../styles/vars.scss';
-@media only screen and (min-width: 0) {
-    .container{
-        width: 100%;
-        .submit-form{
-            width: 100%;
-            text-align: center;
-            input{
-                max-width: 35%
-            }
-            button{
-                margin: 0 9px;
+  @import '../styles/vars.scss';
+  @import '../styles/base-classes.scss';
+
+  @media only screen and (min-width: 0) {
+      .container{
+          width: 100%;
+          .submit-form{
+              width: 100%;
+              text-align: center;
+              input{
+                width: 700px;
+                border: 2px solid $dark-blue;
+                padding: 8px 12px;
+                background-color: rgba(79, 178, 145, 1);
+              }
+              button{
+                margin: 0;
+                padding: 8px 12px;
                 color: white;
-                background-color: rgb(27, 214, 255);
-                padding: 5px 15px;
-                border-radius: 33px;
-                border: none;
+                background-color: $dark-blue;
                 cursor: pointer;
-            }
-        }
-        table {
+                border: 2px solid $dark-blue;
+              }
+          }
+          table {
             table-layout: auto;
-            width: 80%;
             margin: 0 auto;
             border-collapse: collapse;
             background-color: white;
-            box-shadow: 0 0 5px rgb(27, 214, 255);
-            tr{
+            border: 2px solid $dark-blue;
+              tr{
                 max-width: 80%;
                 padding: 7px 20px;
-            }
-            th{
+              }
+              th{
                 text-align: justify;
-                 color: black;
-                 padding: 7px 15px;
-                 border-bottom: 1px solid black;
-            }
-            td{
+                color: black;
+                padding: 7px 15px;
+                border-bottom: 1px solid black;
+              }
+              td{
                 text-align: justify;
                 padding: 7px 15px;
                 border-bottom: 1px solid $light-grey;
-                max-width: 100%;
-                
-            }
-        }
-        .table-form{
-            padding-top: 25px;
-        }
-    }
-}
-@media only screen and (min-width: 768px){
- .container{
-    width: 100%;
-    input{
-        width: 200px;
-
-    }
-  }
-@media only screen and (min-width: 1140px) {
-      .container{
-          width: 100%;
-          input{
-              width: 250px;
-          }
-          table{
-              width: 30%;
-              tr{
-                  max-width: 45%;
+                width: 100%;
               }
+          }
+          .table-form{
+            padding-top: 25px;
+            width: 700px;
+            margin: 0 auto;
           }
       }
   }
-}
+
+  @media only screen and (min-width: 768px){
+   .container{
+      width: 100%;
+      input{
+          width: 200px;
+      }
+    }
+  @media only screen and (min-width: 1140px) {
+        .container{
+            width: 100%;
+            input{
+                width: 250px;
+            }
+            table{
+                width: 700px;
+                tr{
+                    max-width: 45%;
+                }
+            }
+        }
+    }
+  }
 </style>
