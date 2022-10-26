@@ -9,6 +9,7 @@ import '@fortawesome/fontawesome-free/js/all.js'
 import VueSimpleAlert from "vue-simple-alert"
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css';
+import 'animate.css';
 
 Vue.use(VueSweetalert2);
 Vue.use(VueSimpleAlert);
