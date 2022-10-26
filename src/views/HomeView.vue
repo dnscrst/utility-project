@@ -4,22 +4,22 @@
       <h1>
         Happiness & Mindfulness Tools
       </h1>
-      <p>Welcome to your free
+      <p class="animate__animated animate__fadeInDown">Welcome to your free
         powerful tools for daily usage.
         Sample text. Click to select the text box.
         Click again or double click to start editing the text.
       </p>
-      <button>
+      <button class="animate__animated animate__fadeInDown">
         LEARN MORE
       </button>
 <!--      <Countdown date="13 January, 2023" />-->
 <!--      <BasicHomeComp />-->
     </main>
     <ToolBox/>
-    <div class="welcome-message center">
+    <div class="welcome-message center ">
       <h3>{{ welcome.title }}</h3>
       <p>{{welcome.body}}</p>
-      <button>LEARN MORE</button>
+      <button>LEARN MORE </button>
     </div>
     <div class="team-presentation center">
       <h3>Meet The Team</h3>
