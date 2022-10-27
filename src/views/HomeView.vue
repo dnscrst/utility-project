@@ -12,7 +12,7 @@
         Sample text. Click to select the text box.
         Click again or double click to start editing the text.
       </p>
-      <button class="base-button">
+      <button class="base-button"></button>
       <button class="animate__animated animate__fadeInDown">
         LEARN MORE
       </button>
@@ -31,8 +31,8 @@
       <h3>Our Professionals</h3>
       <TeamPresentation :presentation='presentation'/>
     </div>
-    <footer>
-    </footer>
+      <Footer />
+
   </div>
 </template>
 
@@ -40,9 +40,10 @@
   import ToolBox from "@/components/ToolBox";
   import TeamPresentation from "@/components/TeamPresentation";
   import Countdown from '@/components/Countdown.vue';
+import Footer from "@/components/Footer.vue";
     export default {
       name: "HomeView",
-      components: {TeamPresentation, ToolBox, Countdown },
+      components: { TeamPresentation, ToolBox, Countdown, Footer },
       computed: {
         welcome() {
           return this.$store.state.welcome

@@ -69,13 +69,20 @@
 @import "src/styles/base.scss";
 @import "src/styles/vars.scss";
 @media only screen and (min-width: 0px) {
-  .login-page {
+.login-page {
+    height: 80%;
     font-family: Helvetica, sans-serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    background-image: url("../assets/home-background.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #243f56;
     form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background: white;
       width: 350px;
       border-radius: 12px;
@@ -92,17 +99,16 @@
         border-radius: 10px;
         text-align: center;
         &:focus {
-          border: 1px solid rgb(27, 214, 255);
+          border: 1px solid $light-blue;
           box-shadow: 0 0 3px lightblue;
           outline-offset: 0px;
           outline: none;
-        }
-        
+        } 
       }
       button {
         padding: 10px 30px;
         border: none;
-        background-color: rgb(27, 214, 255);
+        background-color: $light-blue;
         border-radius: 10px;
         font-weight: bold;
         color: white;
@@ -110,7 +116,7 @@
       }
       a {
         text-decoration: none;
-        color: rgb(27, 214, 255);
+        color: $light-blue;
         cursor: pointer;
         font-size: 12px;
       }
