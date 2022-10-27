@@ -7,30 +7,30 @@
         <span>Mindfulness </span>
         <span>Tools </span>
       </h1>
-      <p class="animate__animated animate__fadeInDown">Welcome to your free
+      <p class="animate__animated animate__fadeInDown animate__delay-1s">Welcome to your free
         powerful tools for daily usage.
         Sample text. Click to select the text box.
         Click again or double click to start editing the text.
       </p>
-      <button class="base-button">
-      <button class="animate__animated animate__fadeInDown">
+      <button v-scroll-animation class="base-button"
+              @click="windowOpen">
         LEARN MORE
       </button>
-<!--      <Countdown date="13 January, 2023" />-->
-<!--      <BasicHomeComp />-->
     </main>
     <ToolBox/>
-    <div class="welcome-message center ">
-      <h3>{{ welcome.title }}</h3>
-      <p>{{welcome.body}}</p>
-      <button class="base-button">LEARN MORE</button>
-      <button>LEARN MORE </button>
-    </div>
-    <div class="team-presentation center">
-      <h3>Meet The Team</h3>
-      <h3>Our Professionals</h3>
+    <section class="welcome-message center">
+      <h3 v-scroll-animation>{{ welcome.title }}</h3>
+      <p v-scroll-animation>{{welcome.body}}</p>
+      <button  v-scroll-animation class="base-button"
+               @click="windowOpen">
+        LEARN MORE
+      </button>
+    </section>
+    <section class="team-presentation center">
+      <h3 v-scroll-animation>Meet The Team</h3>
+      <h3 v-scroll-animation>Our Professionals</h3>
       <TeamPresentation :presentation='presentation'/>
-    </div>
+    </section>
     <footer>
     </footer>
   </div>
@@ -44,11 +44,16 @@
       name: "HomeView",
       components: {TeamPresentation, ToolBox, Countdown },
       computed: {
-        welcome() {
+        welcome () {
           return this.$store.state.welcome
         },
-        presentation() {
+        presentation () {
           return this.$store.state.presentation
+        }
+      },
+      methods: {
+        windowOpen () {
+          window.open('https://www.cantorsparadise.com/14-interesting-math-facts-3dd5ae820969')
         }
       }
   }
@@ -72,6 +77,15 @@
         background-size: cover;
         padding: 6% 12%;
         color: #243f56;
+        .before {
+          opacity: 0;
+          transform: translateY(-100px);
+          transition: all 2s ease-out;
+        }
+        .after {
+          opacity: 1;
+          transform: translateY(0px);
+        }
         h1 {
           font-size: 36px;
           margin: 54px auto 40px;
@@ -109,13 +123,21 @@
           color: $light-blue;
           margin-bottom: 40px;
           &:hover {
-            animation: white-button 4s ease;
-
+            animation: white-button 4s ease-in;
           }
         }
       }
       .home-tools {
         justify-content: space-between;
+        .before {
+          opacity: 0;
+          transform: translateY(-100px);
+          transition: all 2s ease-out;
+        }
+        .after {
+          opacity: 1;
+          transform: translateY(0px);
+        }
         figure {
           background-color: white;
           border-radius: 20px;
@@ -129,6 +151,9 @@
         }
         .arrow {
           width: 38px;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
         p {
           width: 260px;
@@ -159,13 +184,21 @@
         color: white;
         padding: 50px 40px;
         margin: 20px 0;
+        .before {
+          opacity: 0;
+          transform: translateY(100px);
+          transition: all 2s ease-out;
+        }
+        .after {
+          opacity: 1;
+          transform: translateY(0px);
+        }
         button {
           background-color: $light-blue;
           color: white;
           margin-bottom: 0;
           &:hover {
-            animation: green-button 4s ease;
-
+            animation: green-button 4s ease-in;
           }
         }
         h3 {
@@ -179,6 +212,15 @@
       }
       .team-presentation {
         padding: 30px 40px;
+        .before {
+          opacity: 0;
+          transform: translateX(-100px);
+          transition: all 2s ease-out;
+        }
+        .after {
+          opacity: 1;
+          transform: translateX(0px);
+        }
         h3:nth-child(2), h5, a {
           color: $light-blue
         }
@@ -207,7 +249,9 @@
             margin: 50px auto 30px;
           }
         }
-        a {
+        button {
+          background-color: inherit;
+          border: none;
           img {
             width: 25px;
           }
@@ -258,21 +302,12 @@
       }
     }
   }
-  body {
-    //background: url('../assets/BaseIcons/backgroundTLF.png') no-repeat center center fixed;
-    //-moz-background-size: cover;
-    //-webkit-background-size: cover;
-    //-o-background-size: cover;
-    //background-size: cover;
-    h1 {
-      text-align: center;
-      padding-top: 35px;
-  }
- }
 }
   @keyframes white-button {
-    10% { background-color: #4fb291; color: white }
-    90% { background-color: #4fb291; color: white }
+    10% { background-color: #4fb291;
+          color: white }
+    90% { background-color: #4fb291;
+          color: white }
   }
   @keyframes green-button {
     10% { background-color: white;

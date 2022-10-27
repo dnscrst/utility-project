@@ -44,10 +44,10 @@ export default new Vuex.Store({
       },
       {
         url: require('../assets/denisa.jpg'),
-        name: 'Denisa Cirstea',
+        name: 'Iulian Negrila',
         role: 'frontend developer',
         description: 'Glavi amet ritnisl libero molestie ante ut fringilla purus eros quis glavrid from dolor amet iquam lorem bibendum',
-        linkedin: 'https://www.linkedin.com/in/denisa-cirstea-978a081b6/'
+        linkedin: 'https://www.linkedin.com/in/iulian-marinel-negrila/'
       },
     ]
 

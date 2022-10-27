@@ -1,6 +1,6 @@
 <template>
   <div class="home-tools center">
-    <div class="dark-blue">
+    <div v-scroll-animation class="dark-blue first">
       <figure>
         <img alt="tool-icon" src="../assets/BaseIcons/calculator.png">
       </figure>
@@ -8,21 +8,24 @@
       <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
       <router-link to="/calculator">
         <img class="arrow"
-             src="../assets/BaseIcons/dark-arrow.png">
+             src="../assets/BaseIcons/dark-arrow.png"
+             alt="calculator">
       </router-link>
     </div>
-    <div class="light-blue">
+    <div v-scroll-animation class="light-blue second">
       <figure>
-        <img alt="tool-icon" src="../assets/BaseIcons/checklist.png">
+        <img alt="tool-icon"
+             src="../assets/BaseIcons/checklist.png">
       </figure>
       <h3>To do list</h3>
       <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
       <router-link to="/todolist">
         <img class="arrow"
-             src="../assets/BaseIcons/light-arrow.png">
+             src="../assets/BaseIcons/light-arrow.png"
+             alt="todolist">
       </router-link>
     </div>
-    <div class="dark-blue">
+    <div v-scroll-animation class="dark-blue third">
       <figure>
         <img alt="tool-icon" src="../assets/BaseIcons/answer.png">
       </figure>
@@ -30,7 +33,8 @@
       <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
       <router-link to="/mathquiz">
         <img class="arrow"
-             src="../assets/BaseIcons/dark-arrow.png">
+             src="../assets/BaseIcons/dark-arrow.png"
+             alt="quiz">
 
       </router-link>
     </div>
@@ -46,6 +50,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+  .home-tools {
 
+  }
 </style>

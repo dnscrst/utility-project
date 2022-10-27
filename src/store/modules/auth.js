@@ -28,7 +28,6 @@ export const actions = {
         }
         try {
             const {data} = await axios.get( api.checkLogin )
-            await router.push('/not-auth')
             commit('SET_USER', data)
             next()
         }catch (err) {
@@ -55,8 +54,6 @@ export const actions = {
             console.log(error)
         }
     },
-
-
 }
 export const mutations = {
     SET_USER(state, user) {

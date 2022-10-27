@@ -1,73 +1,64 @@
 <template>
   <div class="calculator-page center">
     <div class="center">
-      <div class="calculator center">
-        <span class="center display"> {{current || '0'}}</span>
-        <button
-            class="operators red"
-            @click="clear">AC
+      <div class="calculator center animate__animated animate__pulse">
+        <span class="center display animate__animated animate__pulse"> {{current || '0'}}</span>
+        <button class="operators red animate__animated animate__pulse"
+                @click="clear">AC
         </button>
-        <button
-            class="operators"
-            @click="sign">+/-
+        <button class="operators animate__animated animate__pulse"
+                @click="sign">+/-
         </button>
-        <button
-            class="operators"
-            @click="percent">%
+        <button class="operators animate__animated animate__pulse"
+                @click="percent">%
         </button>
-        <button
-            class="operators"
-            @click="division">/
+        <button class="operators animate__animated animate__pulse"
+                @click="division">/
         </button>
-        <button
-            @click="append('7')">7
+        <button class="animate__animated animate__pulse"
+                @click="append('7')">7
         </button>
-        <button
-            @click="append('8')">8
+        <button class="animate__animated animate__pulse"
+                @click="append('8')">8
         </button>
-        <button
-            @click="append('9')">9
+        <button class="animate__animated animate__pulse"
+                @click="append('9')">9
         </button>
-        <button
-            class="operators"
-            @click="multiplication">*
+        <button class="operators nimate__animated animate__pulse"
+                @click="multiplication">*
         </button>
-        <button
-            @click="append('4')">4
+        <button class="animate__animated animate__pulse"
+                @click="append('4')">4
         </button>
-        <button
-            @click="append('5')">5
+        <button class="animate__animated animate__pulse"
+                @click="append('5')">5
         </button>
-        <button
+        <button class="animate__animated animate__pulse"
             @click="append('6')">6
         </button>
-        <button
-            class="operators"
-            @click="minus">-
+        <button class="operators animate__animated animate__pulse"
+                @click="minus">-
         </button>
-        <button
-            @click="append('1')">1
+        <button class="animate__animated animate__pulse"
+                @click="append('1')">1
         </button>
-        <button
-            @click="append('2')">2
+        <button class="animate__animated animate__pulse"
+                @click="append('2') ">2
         </button>
-        <button
-            @click="append('3')">3
+        <button class="animate__animated animate__pulse"
+                @click="append('3')">3
         </button>
-        <button
-            class="operators"
-            @click="add">+
+        <button class="operators animate__animated animate__pulse"
+                @click="add">+
         </button>
-        <button
-            class="zero"
-            @click="append('0')">0
+        <button class="zero animate__animated animate__pulse"
+                @click="append('0')">0
         </button>
-        <button
-            @click="dot">.
+        <button class="animate__animated animate__pulse"
+                @click="dot">.
         </button>
-        <button
-            class="operators green"
-            @click="equal">=
+        <button class="operators green animate__animated animate__pulse"
+                @click="equal">=
         </button>
       </div>
     </div>

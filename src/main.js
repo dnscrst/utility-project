@@ -10,11 +10,13 @@ import VueSimpleAlert from "vue-simple-alert"
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css';
 import 'animate.css';
+import ScrollAnimation from "@/directives/scrollanimation";
 
 Vue.use(VueSweetalert2);
 Vue.use(VueSimpleAlert);
+Vue.config.productionTip = false;
+Vue.directive('scroll-animation', ScrollAnimation)
 
-Vue.config.productionTip = false
 
 new Vue({
   router,

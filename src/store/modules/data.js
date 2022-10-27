@@ -23,16 +23,16 @@ export const mutations = {
     SET_LIST(state, tasks) {
         state.tasks = tasks
     },
-    UPDATE_LIST(state, task) {
-        const last = state.tasks.length
-        console.log(last)
+    UPDATE_TASK(state, {task, id}) {
+        const index = state.tasks.findIndex(obj => obj.id === id)
+        const obj = state.tasks[index]
+        state.tasks[index].task = task
 
-        state.tasks[last] = {...task}
     }
 }
 
 export const actions = {
-  async get_quiz ({commit}, quiz) {
+    async get_quiz ({commit}, quiz) {
       try {
           const {data} = await axios.get(api.getQuiz, quiz)
           commit('SET_QUIZ', data)
@@ -40,7 +40,7 @@ export const actions = {
           console.log(err)
       }
   },
-  async verify_ans ({commit}, {answers}) {
+    async verify_ans ({commit}, {answers}) {
       try{
           const {data} = await axios.post(api.getQuiz, {answers})
           commit('SET_RESULT', data)
@@ -64,12 +64,23 @@ export const actions = {
       } catch (err) {
           console.log(err)
       }
+    },
+    async editTask({commit}, {task, id}) {
+        const url = `${api.toDoList}/${id}`
+        console.log(url)
+        // try {
+        //     await axios.put(url, task)
+        //     commit('UPDATE_TASK', {task, id})
+        // } catch (err) {
+        //     console.log(err)
+        // }
+
     }
 }
 
 export const getters = {
     rightTasks (state) {
-        const filtered = state.tasks.filter( (ojb, index) => index >= 100 )
+        const filtered = state.tasks.filter( (ojb, index) => index >= 121 )
         return filtered
     }
 }

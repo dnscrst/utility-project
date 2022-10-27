@@ -4,12 +4,13 @@
       <figure>
         <img :src='person.url' alt="person-pict">
       </figure>
-      <h4>{{ person.name }}</h4>
-      <h5>{{ person.role }}</h5>
-      <p>{{ person.description }}</p>
-      <a :href="person.linkedin">
-        <img src="../assets/BaseIcons/linkedin.jpg">
-      </a>
+      <h4 v-scroll-animation>{{ person.name }}</h4>
+      <h5 v-scroll-animation>{{ person.role }}</h5>
+      <p v-scroll-animation>{{ person.description }}</p>
+      <button @click = linkedInOpen(person.linkedin)>
+        <img v-scroll-animation
+             src="../assets/BaseIcons/linkedin.jpg">
+      </button>
     </div>
   </div>
 </template>
@@ -19,10 +20,15 @@ export default {
   name: "TeamPresentation",
   props:{
     presentation: Array
+  },
+  methods: {
+    linkedInOpen (link) {
+      window.open(link)
+    }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 
 </style>

@@ -6,7 +6,7 @@
       <p>{{ welcome.body }}</p>
       <button
               @click="handleQuiz"
-              class="base-button">
+              class="base-button start-quiz">
         START QUIZ
       </button>
     </div>
@@ -24,23 +24,23 @@
     name: 'MathQuizView',
     components: {Quiz},
 
-      data() {
+      data () {
         return {
           startQuiz: false,
         }
       },
 
       computed: {
-        data() {
+        data () {
           return this.$store.state.data.quiz
         },
-        welcome() {
+        welcome () {
           return this.$store.state.welcome
         }
       },
 
       methods: {
-        handleQuiz() {
+        handleQuiz () {
           if (!this.startQuiz) {
             this.startQuiz = true
             this.$store.dispatch("get_quiz")
@@ -68,8 +68,15 @@
         color: white;
         padding: 50px 40px;
         margin: 20px 0;
-        button {
-         background-color: $light-blue;
+        .start-quiz {
+          background-color: $light-blue;
+          color: white;
+          animation: pulse;
+          animation-duration: 1.5s;
+          animation-iteration-count: infinite;
+          &:hover {
+            animation: green-button 4s ease-in;
+          }
        }
         h3 {
           margin: 10px auto 30px;
