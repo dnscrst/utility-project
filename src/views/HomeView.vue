@@ -2,94 +2,34 @@
   <div class="home-page">
     <main class="center">
       <h1>
-        Happiness & Mindfulness Tools
+        <span>Happiness </span>
+        <span>& </span>
+        <span>Mindfulness </span>
+        <span>Tools </span>
       </h1>
-      <p>Welcome to your free
+      <p class="animate__animated animate__fadeInDown">Welcome to your free
         powerful tools for daily usage.
         Sample text. Click to select the text box.
         Click again or double click to start editing the text.
       </p>
-      <button>
+      <button class="base-button"></button>
+      <button class="animate__animated animate__fadeInDown">
         LEARN MORE
       </button>
 <!--      <Countdown date="13 January, 2023" />-->
 <!--      <BasicHomeComp />-->
     </main>
-    <div class="home-tools center">
-      <div class="dark-blue">
-        <figure>
-          <img alt="tool-icon" src="../assets/BaseIcons/calculator.png">
-        </figure>
-        <h3>Calculator</h3>
-        <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-        <router-link to="/calculator">
-          <img class="arrow"
-               src="../assets/BaseIcons/dark-arrow.png">
-        </router-link>
-      </div>
-      <div class="light-blue">
-        <figure>
-          <img alt="tool-icon" src="../assets/BaseIcons/checklist.png">
-        </figure>
-        <h3>To do list</h3>
-        <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-        <router-link to="/todolist">
-          <img class="arrow"
-               src="../assets/BaseIcons/light-arrow.png">
-        </router-link>
-      </div>
-      <div class="dark-blue">
-        <figure>
-          <img alt="tool-icon" src="../assets/BaseIcons/answer.png">
-        </figure>
-        <h3>Math quiz</h3>
-        <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-        <router-link to="/mathquiz">
-          <img class="arrow"
-               src="../assets/BaseIcons/dark-arrow.png">
-        </router-link>
-      </div>
-    </div>
-    <div class="welcome-message center">
-      <h3>Welcome Message</h3>
-      <p>Amet luctus venenatis lectus magna fringilla urna
-        porttitor rhoncus dolor. A lacus vestibulum sed arcu non.
-        Dolor magna eget est lorem ipsum dolor sit amet consectetur.
-        Mauris pellentesque pulvinar pellentesque habitant morbi
-        tristique senectus. Nec feugiat nisl pretium fusce id.
-        Justo laoreet sit amet cursus sit amet.
-        Porta non pulvinar neque laoreet suspendisse interdum consectetur libero.</p>
-      <button>LEARN MORE</button>
+    <ToolBox/>
+    <div class="welcome-message center ">
+      <h3>{{ welcome.title }}</h3>
+      <p>{{welcome.body}}</p>
+      <button class="base-button">LEARN MORE</button>
+      <button>LEARN MORE </button>
     </div>
     <div class="team-presentation center">
       <h3>Meet The Team</h3>
       <h3>Our Professionals</h3>
-      <div class="person-card center">
-        <div>
-          <figure>
-            <img src="../assets/denisa.jpg">
-          </figure>
-          <h4>Denisa Cirstea</h4>
-          <h5>frontend developer</h5>
-          <p>Glavi amet ritnisl libero molestie ante ut fringilla purus
-            eros quis glavrid from dolor amet iquam lorem bibendum</p>
-          <a href="https://www.linkedin.com/in/denisa-cirstea-978a081b6/">
-            <img src="../assets/BaseIcons/linkedin.jpg">
-          </a>
-        </div>
-        <div>
-          <figure>
-            <img src="../assets/denisa.jpg">
-          </figure>
-          <h4>Iulian Negrila</h4>
-          <h5>frontend developer</h5>
-          <p>Glavi amet ritnisl libero molestie ante ut fringilla purus
-            eros quis glavrid from dolor amet iquam lorem bibendum</p>
-          <a href="https://www.linkedin.com/in/iulian-marinel-negrila/">
-            <img src="../assets/BaseIcons/linkedin.jpg">
-          </a>
-        </div>
-      </div>
+      <TeamPresentation :presentation='presentation'/>
     </div>
       <Footer />
 
@@ -97,12 +37,21 @@
 </template>
 
 <script>
-import Countdown from '@/components/Countdown.vue';
-import BasicHomeComp from '@/components/BasicHomeComp.vue';
-import Footer from '@/components/Footer.vue';
+  import ToolBox from "@/components/ToolBox";
+  import TeamPresentation from "@/components/TeamPresentation";
+  import Countdown from '@/components/Countdown.vue';
+import Footer from "@/components/Footer.vue";
     export default {
       name: "HomeView",
-      components: { Countdown, BasicHomeComp, Footer }
+      components: { TeamPresentation, ToolBox, Countdown, Footer },
+      computed: {
+        welcome() {
+          return this.$store.state.welcome
+        },
+        presentation() {
+          return this.$store.state.presentation
+        }
+      }
   }
 </script>
 
@@ -112,18 +61,8 @@ import Footer from '@/components/Footer.vue';
 @import "src/styles/vars.scss";
   @media only screen and (min-width: 0){
     .home-page{
-      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation, .person-card{
+      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation, .person-card {
         flex-direction: column;
-      }
-      button {
-        border: solid 4px $light-blue;
-        border-radius: 50px;
-        width: 218px;
-        height: 64px;
-        padding: 15px 40px;
-        margin: 34px auto;
-        letter-spacing: 1.5px;
-        font-size: 14px;
       }
       h3 {
         font-size: 28px;
@@ -139,6 +78,25 @@ import Footer from '@/components/Footer.vue';
           margin: 54px auto 40px;
           letter-spacing: 1.5px;
           max-width: 434px;
+          transform: scale(0.94);
+          animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+          span {
+            display: inline-block;
+            opacity: 0;
+            filter: blur(4px);
+            &:nth-child(1) {
+              animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+            }
+            &:nth-child(2) {
+              animation: fade-in 0.8s 0.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
+            }
+            &:nth-child(3) {
+              animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
+            }
+            &:nth-child(4) {
+              animation: fade-in 0.8s 0.4s forwards cubic-bezier(0.11, 0, 0.5, 0);
+            }
+          }
         }
         p {
           line-height: 1.8;
@@ -151,6 +109,10 @@ import Footer from '@/components/Footer.vue';
           background-color: white;
           color: $light-blue;
           margin-bottom: 40px;
+          &:hover {
+            animation: white-button 4s ease;
+
+          }
         }
       }
       .home-tools {
@@ -202,6 +164,10 @@ import Footer from '@/components/Footer.vue';
           background-color: $light-blue;
           color: white;
           margin-bottom: 0;
+          &:hover {
+            animation: green-button 4s ease;
+
+          }
         }
         h3 {
           margin: 10px auto 30px;
@@ -254,6 +220,7 @@ import Footer from '@/components/Footer.vue';
         width: 100%;
       }
     }
+
   }
 @media only screen and (min-width: 768px) {
   .home-page {
@@ -304,4 +271,26 @@ import Footer from '@/components/Footer.vue';
   }
  }
 }
+  @keyframes white-button {
+    10% { background-color: #4fb291; color: white }
+    90% { background-color: #4fb291; color: white }
+  }
+  @keyframes green-button {
+    10% { background-color: white;
+          color: $light-blue;
+          border-color: $light-blue }
+    90% { background-color: white;
+          color: $light-blue;
+          border-color: $light-blue }
+  }
+  @keyframes scale {
+    100% { transform: scale(1); }
+  }
+  @keyframes fade-in {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
 </style>

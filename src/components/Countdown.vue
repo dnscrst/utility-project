@@ -92,8 +92,5 @@
      margin-bottom: -7px;
     }
 }
-@media only screen and (min-width:430px){
-    
-}
-
+@media only screen and (min-width:430px){}
 </style>

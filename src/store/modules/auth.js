@@ -16,21 +16,19 @@ export const actions = {
             commit('SET_USER', data);
             commit('SET_LOG', 'true');
             await router.push('/')
-
-
         }catch(error){
             console.log(error)
            commit('SET_SHOWERROR', error.response.data.message.reason)
-        }   
-
+         }
         },
     async check_login({commit}, next){
-        if( state.user.name) {
+        if (state.user.name) {
             next()
             return
         }
-        try{
-            const {data} = await axios.get(api.checkLogin)
+        try {
+            const {data} = await axios.get( api.checkLogin )
+            await router.push('/not-auth')
             commit('SET_USER', data)
             next()
         }catch (err) {
@@ -57,15 +55,7 @@ export const actions = {
             console.log(error)
         }
     },
-    async getList({commit}) {
-        try {
-            const {data} = await axios.get(api.toDoList)
-            commit('SET_LIST', data)
-            console.log(data)
-        } catch (err) {
-            console.log(err)
-        }
-    },
+
 
 }
 export const mutations = {
@@ -85,8 +75,5 @@ export const mutations = {
     SET_MSG(state, msg) {
         state.msg = msg
     },
-    SET_LIST(state, tasks) {
-        state.tasksList = tasks
-        console.log(tasks)
-    }
+
 }

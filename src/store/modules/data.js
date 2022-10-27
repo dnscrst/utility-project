@@ -1,5 +1,6 @@
 import axios from "axios";
 import api from "@/store/api";
+import {indexOf} from "core-js/internals/array-includes";
 
 export const state = {
     quiz: {},
@@ -8,7 +9,26 @@ export const state = {
             id: null,
             correctAnswer: Boolean
         }
-    ]
+    ],
+    tasks: []
+}
+
+export const mutations = {
+    SET_QUIZ(state, quiz) {
+        state.quiz = quiz
+    },
+    SET_RESULT(state, result) {
+        state.result = result
+    },
+    SET_LIST(state, tasks) {
+        state.tasks = tasks
+    },
+    UPDATE_LIST(state, task) {
+        const last = state.tasks.length
+        console.log(last)
+
+        state.tasks[last] = {...task}
+    }
 }
 
 export const actions = {
@@ -27,13 +47,29 @@ export const actions = {
       } catch (error){
           console.log(error)
       }
-  }
-}
-export const mutations = {
-    SET_QUIZ(state, quiz) {
-        state.quiz = quiz
+  },
+    async getList({commit}) {
+      try {
+          const {data} = await axios.get(api.toDoList)
+          commit('SET_LIST', data)
+      } catch (err) {
+          console.log(err)
+      }
     },
-    SET_RESULT(state, result) {
-        state.result = result
+    async addTask({commit}, {task}) {
+      try {
+          await axios.post(api.toDoList, {...task})
+          console.log(state.tasks)
+          commit('UPDATE_LIST', task)
+      } catch (err) {
+          console.log(err)
+      }
+    }
+}
+
+export const getters = {
+    rightTasks (state) {
+        const filtered = state.tasks.filter( (ojb, index) => index >= 100 )
+        return filtered
     }
 }
