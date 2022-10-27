@@ -13,7 +13,9 @@
         Click again or double click to start editing the text.
       </p>
       <button v-scroll-animation class="base-button"
-              @click="windowOpen">
+              @click="windowOpen"></button>
+      <button class="base-button"></button>
+      <button class="animate__animated animate__fadeInDown">
         LEARN MORE
       </button>
     </main>
@@ -33,16 +35,20 @@
     </section>
     <footer>
     </footer>
-  </div>
+    </div>
+      <Footer />
 </template>
 
 <script>
+
   import ToolBox from "@/components/ToolBox";
   import TeamPresentation from "@/components/TeamPresentation";
   import Countdown from '@/components/Countdown.vue';
+import Footer from "@/components/Footer.vue";
     export default {
+      
       name: "HomeView",
-      components: {TeamPresentation, ToolBox, Countdown },
+      components: { TeamPresentation, ToolBox, Countdown, Footer },
       computed: {
         welcome () {
           return this.$store.state.welcome
@@ -65,8 +71,17 @@
 @import "src/styles/vars.scss";
   @media only screen and (min-width: 0){
     .home-page{
-      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation, .person-card {
+      main, .home-tools, .light-blue , .dark-blue, .welcome-message, .team-presentation, .person-card{
         flex-direction: column;
+      button {
+        border: solid 4px $light-blue;
+        border-radius: 50px;
+        width: 218px;
+        height: 64px;
+        padding: 15px 40px;
+        margin: 34px auto;
+        letter-spacing: 1.5px;
+        font-size: 14px;
       }
       h3 {
         font-size: 28px;
@@ -270,6 +285,7 @@
     .home-tools, .person-card {
       flex-direction: row;
       flex-wrap: wrap;
+      
     }
     .home-tools {
       max-width: 1070px;
@@ -303,6 +319,7 @@
     }
   }
 }
+<<<<<<< HEAD
   @keyframes white-button {
     10% { background-color: #4fb291;
           color: white }
@@ -327,4 +344,7 @@
     }
   }
 
+=======
+}
+>>>>>>> 99e23fabe8b8d69dbfc97a3304f3f10e9851fcce
 </style>
