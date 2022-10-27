@@ -21,6 +21,7 @@ import NavBar from './components/NavBar.vue';
 @import "src/styles/vars.scss";
   .app{
     height: 100%;
+
   }
 </style>
 

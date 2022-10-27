@@ -2,24 +2,29 @@
   <div class="home-page">
     <main class="center">
       <h1>
-        Happiness & Mindfulness Tools
+        <span>Happiness </span>
+        <span>& </span>
+        <span>Mindfulness </span>
+        <span>Tools </span>
       </h1>
-      <p>Welcome to your free
+      <p class="animate__animated animate__fadeInDown">Welcome to your free
         powerful tools for daily usage.
         Sample text. Click to select the text box.
         Click again or double click to start editing the text.
       </p>
-      <button>
+      <button class="base-button"></button>
+      <button class="animate__animated animate__fadeInDown">
         LEARN MORE
       </button>
 <!--      <Countdown date="13 January, 2023" />-->
 <!--      <BasicHomeComp />-->
     </main>
     <ToolBox/>
-    <div class="welcome-message center">
+    <div class="welcome-message center ">
       <h3>{{ welcome.title }}</h3>
       <p>{{welcome.body}}</p>
-      <button>LEARN MORE</button>
+      <button class="base-button">LEARN MORE</button>
+      <button>LEARN MORE </button>
     </div>
     <div class="team-presentation center">
       <h3>Meet The Team</h3>
@@ -83,6 +88,25 @@
           margin: 54px auto 40px;
           letter-spacing: 1.5px;
           max-width: 434px;
+          transform: scale(0.94);
+          animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+          span {
+            display: inline-block;
+            opacity: 0;
+            filter: blur(4px);
+            &:nth-child(1) {
+              animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+            }
+            &:nth-child(2) {
+              animation: fade-in 0.8s 0.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
+            }
+            &:nth-child(3) {
+              animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
+            }
+            &:nth-child(4) {
+              animation: fade-in 0.8s 0.4s forwards cubic-bezier(0.11, 0, 0.5, 0);
+            }
+          }
         }
         p {
           line-height: 1.8;
@@ -95,6 +119,10 @@
           background-color: white;
           color: $light-blue;
           margin-bottom: 40px;
+          &:hover {
+            animation: white-button 4s ease;
+
+          }
         }
       }
       .home-tools {
@@ -146,6 +174,10 @@
           background-color: $light-blue;
           color: white;
           margin-bottom: 0;
+          &:hover {
+            animation: green-button 4s ease;
+
+          }
         }
         h3 {
           margin: 10px auto 30px;
@@ -198,6 +230,7 @@
         width: 100%;
       }
     }
+
   }
 @media only screen and (min-width: 768px) {
   .home-page {

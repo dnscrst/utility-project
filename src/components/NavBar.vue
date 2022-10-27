@@ -41,7 +41,7 @@
             },
             {
               path:'/todolist',
-              name: 'ToDo List'
+              name: 'To Do List'
             },
           ],
           isOpen: false,
@@ -142,10 +142,11 @@
       a {
         margin: 0 12px;
         display: inline-block;
-        transition: transform .2s;
+        color: $dark-blue;
+        transition: transform .1s;
         &:hover {
-          transform: scale(1.1);
-          color: rgb(27, 214, 255);
+          transform: scale(1.06);
+          color: $light-blue;
         }
         &:nth-child(3) {
           margin-right: 20px;

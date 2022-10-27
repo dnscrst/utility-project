@@ -15,5 +15,12 @@ import ToDoList from '@/components/ToDoList.vue';
 </script>
 
 <style lang="scss">
+  @import "src/styles/base-classes.scss";
+  @import "src/styles/base.scss";
+  @import "src/styles/vars.scss";
+  .todolist-page {
+    background-image: url("../assets/background.png");
+    height: 100%;
+  }
 
 </style>
