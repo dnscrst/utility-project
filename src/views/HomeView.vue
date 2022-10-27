@@ -31,8 +31,8 @@
       <h3>Our Professionals</h3>
       <TeamPresentation :presentation='presentation'/>
     </div>
-    <footer>
-    </footer>
+      <Footer />
+
   </div>
 </template>
 
@@ -41,10 +41,11 @@
   import ToolBox from "@/components/ToolBox";
   import TeamPresentation from "@/components/TeamPresentation";
   import Countdown from '@/components/Countdown.vue';
+import Footer from "@/components/Footer.vue";
     export default {
       
       name: "HomeView",
-      components: {TeamPresentation, ToolBox, Countdown },
+      components: { TeamPresentation, ToolBox, Countdown, Footer },
       computed: {
         welcome() {
           return this.$store.state.welcome
