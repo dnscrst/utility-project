@@ -99,7 +99,7 @@
         border-radius: 10px;
         text-align: center;
         &:focus {
-          border: 1px solid rgb(27, 214, 255);
+          border: 1px solid $light-blue;
           box-shadow: 0 0 3px lightblue;
           outline-offset: 0px;
           outline: none;
@@ -108,7 +108,7 @@
       button {
         padding: 10px 30px;
         border: none;
-        background-color: rgb(27, 214, 255);
+        background-color: $light-blue;
         border-radius: 10px;
         font-weight: bold;
         color: white;
@@ -116,7 +116,7 @@
       }
       a {
         text-decoration: none;
-        color: rgb(27, 214, 255);
+        color: $light-blue;
         cursor: pointer;
         font-size: 12px;
       }

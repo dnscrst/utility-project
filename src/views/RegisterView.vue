@@ -87,6 +87,12 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        background-image: url("../assets/home-background.jpg");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: #243f56;
         form {
             position: relative;
             background: white;
@@ -105,7 +111,7 @@
                 border-radius: 10px;
                 text-align: center;
                 &:focus {
-                    border: 1px solid rgb(27, 214, 255);
+                    border: 1px solid $light-blue;
                     box-shadow: 0 0 3px lightblue;
                     outline-offset: 0px;
                     outline: none;
@@ -114,7 +120,7 @@
             button {
                 padding: 10px 20px;
                 border: none;
-                background-color: rgb(27, 214, 255);
+                background-color: $light-blue;
                 border-radius: 10px;
                 font-weight: bold;
                 color: white;
