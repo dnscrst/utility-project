@@ -74,14 +74,7 @@
         submitTask() {
           if(this.name.length !== 0) {
             if(this.onEdit) {
-              console.log(this.list.id)
-              this.list.task = this.name
-              this.$store.dispatch('editTask', {
-                task: this.list.task,
-                id: this.list.id
-              })
-
-            }
+              }
             else {
               this.list.task = this.name
               this.$store.dispatch('addTask', {task: this.list})

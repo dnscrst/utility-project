@@ -65,19 +65,7 @@ export const actions = {
           console.log(err)
       }
     },
-    async editTask({commit}, {task, id}) {
-        const url = `${api.toDoList}/${id}`
-        console.log(url)
-        // try {
-        //     await axios.put(url, task)
-        //     commit('UPDATE_TASK', {task, id})
-        // } catch (err) {
-        //     console.log(err)
-        // }
-
-    }
 }
-
 export const getters = {
     rightTasks (state) {
         const filtered = state.tasks.filter( (ojb, index) => index >= 121 )

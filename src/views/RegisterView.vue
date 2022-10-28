@@ -87,11 +87,6 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-image: url("../assets/home-background.jpg");
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
         color: #243f56;
         form {
             position: relative;
@@ -100,7 +95,7 @@
             border-radius: 12px;
             text-align: center;
             padding-bottom: 10px;
-            box-shadow: 0 0 10px lightblue;
+            box-shadow: 0 0 10px $medium-blue;
             h2 {
                 padding: 15px 0;
             }
