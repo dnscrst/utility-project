@@ -9,52 +9,7 @@ export const state = {
     error: {},
     msg: '',
 }
-export const actions = {
-    async login ({commit}, user) {
-        try {
-            const {data} = await axios.post(api.login, user);
-            commit('SET_USER', data);
-            commit('SET_LOG', 'true');
-            await router.push('/')
-        }catch(error){
-            console.log(error)
-           commit('SET_SHOWERROR', error.response.data.message.reason)
-         }
-        },
-    async check_login({commit}, next){
-        if (state.user.name) {
-            next()
-            return
-        }
-        try {
-            const {data} = await axios.get( api.checkLogin )
-            commit('SET_USER', data)
-            next()
-        }catch (err) {
-            console.log(err)
-            commit('SET_ERROR', err)
-        }
-    },
-    async logout({commit}) {
-        try{
-            await axios.delete(api.logout);
-            commit('SET_LOG', 'false')
-            location.reload()
-            await router.push('/')
 
-        }catch(err){
-            console.log(err)
-        }
-    },
-    async register({commit}, {account}) {
-        try{
-            const {data} = await axios.post(api.register, {...account})
-            commit('SET_MSG', data.msg)
-        }catch (error){
-            console.log(error)
-        }
-    },
-}
 export const mutations = {
     SET_USER(state, user) {
         state.user = user
@@ -72,5 +27,53 @@ export const mutations = {
     SET_MSG(state, msg) {
         state.msg = msg
     },
-
 }
+
+export const actions = {
+    async login ({commit}, user) {
+        try {
+            const {data} = await axios.post(api.login, user);
+            commit('SET_USER', data);
+            commit('SET_LOG', 'true');
+            await router.push('/')
+        } catch(error){
+            console.log(error)
+           commit('SET_SHOWERROR', error.response.data.message.reason)
+         }
+        },
+    async check_login({commit}, next){
+        if (state.user.name) {
+            next()
+            return
+        }
+        try {
+            const {data} = await axios.get( api.checkLogin )
+            commit('SET_USER', data)
+            next()
+        } catch (err) {
+            console.log(err)
+            commit('SET_ERROR', err)
+            next('/notauth')
+        }
+    },
+    async logout({commit}) {
+        try{
+            await axios.delete(api.logout);
+            commit('SET_LOG', 'false')
+            location.reload()
+            await router.push('/')
+
+        } catch(err){
+            console.log(err)
+        }
+    },
+    async register({commit}, {account}) {
+        try{
+            const {data} = await axios.post(api.register, {...account})
+            commit('SET_MSG', data.msg)
+        } catch (error){
+            console.log(error)
+        }
+    },
+}
+

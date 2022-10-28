@@ -110,6 +110,7 @@
   @import "src/styles/base-classes.scss";
   @import "src/styles/base.scss";
   @import "src/styles/vars.scss";
+
   @media only screen and (min-width: 0) {
     .math-quiz{
       width: 100% ;
@@ -206,7 +207,6 @@
       }
     }
   }
-
   @media only screen and (min-width: 1140px) {
     .math-quiz {
       width: 80%;

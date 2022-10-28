@@ -49,8 +49,6 @@ export default new Vuex.Store({
         linkedin: 'https://www.linkedin.com/in/iulian-marinel-negrila/'
       },
     ]
-
-
   },
   getters: {
   },

@@ -9,7 +9,6 @@ const animatedScrollObserver = new IntersectionObserver(
         })
     }
 )
-
 export default {
     bind(el) {
         el.classList.add('before');

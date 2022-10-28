@@ -20,49 +20,49 @@ export default {
 </script>
 
 <style lang="scss">
-  .hamburger-menu {
+  @media only screen and (min-width: 0px) {
+    .hamburger-menu {
       cursor: pointer;
       span {
-          display: block;
-          width: 33px;
-          border-bottom: 1px solid black;
-          transition: transform 0.2s ease-in-out;
-          &:first-child,
-          &:last-child {
-              animation: close 0.2s normal forwards ease-in-out;
-          }
-          &:first-child {
-              transform: translateY(-8px);
-          }
-          &:nth-child(3) {
-              transform: translateY(-1px);
-          }
-          &:last-child {
-              transform: translateY(7px);
-          }
-
-  @media only screen and (min-width: 768px) {
-      display: none;
-          }
+        display: block;
+        width: 33px;
+        border-bottom: 1px solid black;
+        transition: transform 0.2s ease-in-out;
+        &:first-child,
+        &:last-child {
+          animation: close 0.2s normal forwards ease-in-out;
+        }
+        &:first-child {
+          transform: translateY(-8px);
+        }
+        &:nth-child(3) {
+          transform: translateY(-1px);
+        }
+        &:last-child {
+          transform: translateY(7px);
+        }
       }
       &.is-open {
-          span {
+        span {
 
-              &:first-child,
-              &:last-child {
-                  animation: open 0.2s normal forwards ease-in-out;
-              }
-
-              &:nth-child(2) {
-
-                  transform: rotate(-45deg);
-              }
-
-              &:nth-child(3) {
-                  transform: rotate(45deg);
-              }
+          &:first-child,
+          &:last-child {
+            animation: open 0.2s normal forwards ease-in-out;
           }
+          &:nth-child(2) {
+            transform: rotate(-45deg);
+          }
+          &:nth-child(3) {
+            transform: rotate(45deg);
+          }
+        }
       }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .hamburger-menu {
+      display: none;
+    }
   }
 
   @keyframes open {
@@ -73,7 +73,6 @@ export default {
           opacity: 0;
       }
   }
-
   @keyframes close {
       0% {
           opacity: 0;

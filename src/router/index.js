@@ -48,6 +48,11 @@ const routes = [
     name: 'register',
     component: RegisterView
   },
+  {
+    path: '/notauth',
+    name: 'notauth',
+    component: NotAuth
+  },
 ]
 
 const router = new VueRouter({
@@ -55,6 +60,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
 router.beforeEach(async ({name, meta}, from, next) => {
   if (name !== "login" && meta?.auth) {
     await store.dispatch('check_login', next)

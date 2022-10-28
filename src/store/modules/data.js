@@ -1,6 +1,5 @@
 import axios from "axios";
 import api from "@/store/api";
-import {indexOf} from "core-js/internals/array-includes";
 
 export const state = {
     quiz: {},
@@ -23,12 +22,6 @@ export const mutations = {
     SET_LIST(state, tasks) {
         state.tasks = tasks
     },
-    UPDATE_TASK(state, {task, id}) {
-        const index = state.tasks.findIndex(obj => obj.id === id)
-        const obj = state.tasks[index]
-        state.tasks[index].task = task
-
-    }
 }
 
 export const actions = {
@@ -36,7 +29,7 @@ export const actions = {
       try {
           const {data} = await axios.get(api.getQuiz, quiz)
           commit('SET_QUIZ', data)
-      }catch(err){
+      } catch(err){
           console.log(err)
       }
   },
@@ -59,16 +52,12 @@ export const actions = {
     async addTask({commit}, {task}) {
       try {
           await axios.post(api.toDoList, {...task})
-          console.log(state.tasks)
-          commit('UPDATE_LIST', task)
+          commit('SET_LIST', task)
       } catch (err) {
           console.log(err)
       }
     },
-}
-export const getters = {
-    rightTasks (state) {
-        const filtered = state.tasks.filter( (ojb, index) => index >= 121 )
-        return filtered
+    async updateList({commit}, {newList}) {
+        commit('SET_LIST', newList)
     }
 }

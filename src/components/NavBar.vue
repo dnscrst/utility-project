@@ -28,7 +28,7 @@
       export default {
         name: "NavBar",
         components: {HamburgerMenu},
-      data(){
+        data(){
         return{
           links: [
             {
@@ -47,20 +47,22 @@
           isOpen: false,
         }
       },
+
         computed: {
           isLogged() {
             return this.$store.state.auth.isLogged
           }
         },
-      methods: {
+
+        methods: {
         handleHambMenu() {
           this.isOpen = !this.isOpen
         this.$refs.navBar.style.height = this.isOpen ? '100%' : '60px'
-      },
+        },
         HandleChangeRoute() {
         this.isOpen = false
         this.$refs.navBar.style.height = '60px'
-      },
+        },
         goToHome() {
           this.isOpen = false
           this.$refs.navBar.style.height = '60px'
@@ -80,8 +82,9 @@
 </script>
 
 <style lang="scss">
- @import '../styles/vars.scss';
- @media only screen and (min-width: 0) {
+  @import '../styles/vars.scss';
+
+  @media only screen and (min-width: 0) {
     .nav-bar {
       font-family: Helvetica, sans-serif;
       height: 60px;
@@ -127,44 +130,44 @@
       }
     }
 }
-@media only screen and (min-width: 768px) {
-  .nav-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    img {
-      padding-top: 30px;
-    }
-    nav {
-      margin: 0 30px 0;
-
-      a {
-        margin: 0 12px;
-        display: inline-block;
-        color: $dark-blue;
-        transition: transform .1s;
-        &:hover {
-          transform: scale(1.06);
-          color: $light-blue;
-        }
-        &:nth-child(3) {
-          margin-right: 20px;
-        }
+  @media only screen and (min-width: 768px) {
+    .nav-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      img {
+        padding-top: 30px;
       }
-      button {
-        color: white;
-        background-color: $light-blue;
-        padding: 7px 20px;
-        border-radius: 33px;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.2s;
-        &hover {
-          transform: scale(1.1);
+      nav {
+        margin: 0 30px 0;
+
+        a {
+          margin: 0 12px;
+          display: inline-block;
+          color: $dark-blue;
+          transition: transform .1s;
+          &:hover {
+            transform: scale(1.06);
+            color: $light-blue;
+          }
+          &:nth-child(3) {
+            margin-right: 20px;
+          }
+        }
+        button {
+          color: white;
+          background-color: $light-blue;
+          padding: 7px 20px;
+          border-radius: 33px;
+          border: none;
+          cursor: pointer;
+          transition: transform 0.2s;
+          &hover {
+            transform: scale(1.1);
+          }
         }
       }
     }
   }
-}
 </style>
