@@ -24,16 +24,16 @@
                 <th>Delete</th>
             </tr>
             <tr v-for="(task,index) in tasksList" :key="index">
-                <td>{{task.task}}</td>
-                <td><span @click="changeStatus(index)">
+                <td :class="index">{{task.task}}</td>
+                <td :class="index"><span @click="changeStatus(index)">
                           {{task.status}}
                     </span></td>
-                <td>
+                <td :class="index">
                     <div @click="editTask(index)">
                         <span class="fa fa-pen"></span>
                     </div>
                 </td>
-                <td>
+                <td :class="index">
                     <div @click="deleteTask(index)">
                         <span class="fa fa-trash"></span>
                     </div>
@@ -59,27 +59,32 @@
             editedTask: null,
             tasks: [],
             allStatuses: ['to do', 'in progress', 'finished'],
-            onEdit: false
+            onEdit: false,
+          updateTasksList: []
         }
        },
+
       created() {
         this.$store.dispatch('getList')
       },
+
       computed: {
         tasksList() {
-            return this.$store.getters.rightTasks
+          return this.$store.state.data.tasks
         }
       },
+
       methods: {
         submitTask() {
           if(this.name.length !== 0) {
             if(this.onEdit) {
+              this.tasksList[this.editedTask].task = this.name
+              this.editedTask = null
               }
             else {
               this.list.task = this.name
               this.$store.dispatch('addTask', {task: this.list})
               this.$store.dispatch('getList')
-
             }
           }
           else return
@@ -87,6 +92,7 @@
         },
         editTask(index){
           this.name = this.tasksList[index].task;
+          this.editedTask = index;
           this.onEdit = true;
         },
         changeStatus(index){
@@ -94,8 +100,12 @@
           if(++newIndex > 2) newIndex = 0;
           this.tasksList[index].status = this.allStatuses[newIndex];
         },
-
-       }
+        deleteTask(index) {
+          this.updateTasksList = this.tasksList.slice()
+          this.updateTasksList.splice(index, 1)
+          this.$store.dispatch('updateList', {newList:this.updateTasksList})
+        }
+      }
     }
 </script>
 

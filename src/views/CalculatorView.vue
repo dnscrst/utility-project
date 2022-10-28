@@ -139,6 +139,7 @@
   @import "src/styles/base-classes.scss";
   @import "src/styles/base.scss";
   @import "src/styles/vars.scss";
+
   @media only screen and (min-width: 0) {
     .calculator-page {
       height: 100%;
@@ -208,8 +209,4 @@
       }
     }
   }
-  @media only screen and (min-width: 1140px) {
-
-  }
-
 </style>

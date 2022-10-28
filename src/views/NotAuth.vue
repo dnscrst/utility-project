@@ -12,9 +12,9 @@
 </template>
 
 <script>
-export default {
-  name: "NotAuth"
-}
+  export default {
+    name: "NotAuth"
+  }
 </script>
 
 <style lang="scss">

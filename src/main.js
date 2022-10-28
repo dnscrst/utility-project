@@ -17,7 +17,6 @@ Vue.use(VueSimpleAlert);
 Vue.config.productionTip = false;
 Vue.directive('scroll-animation', ScrollAnimation)
 
-
 new Vue({
   router,
   store,

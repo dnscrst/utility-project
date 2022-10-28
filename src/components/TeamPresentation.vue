@@ -2,14 +2,16 @@
   <div class="person-card center" >
     <div v-for="person in presentation">
       <figure>
-        <img :src='person.url' alt="person-pict">
+        <img :src='person.url'
+             alt="person-pict">
       </figure>
       <h4 v-scroll-animation>{{ person.name }}</h4>
       <h5 v-scroll-animation>{{ person.role }}</h5>
       <p v-scroll-animation>{{ person.description }}</p>
       <button @click = linkedInOpen(person.linkedin)>
         <img v-scroll-animation
-             src="../assets/BaseIcons/linkedin.jpg">
+             src="../assets/BaseIcons/linkedin.jpg"
+             alt="linkedin">
       </button>
     </div>
   </div>
@@ -28,7 +30,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>

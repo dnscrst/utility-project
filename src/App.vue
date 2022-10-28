@@ -6,9 +6,7 @@
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
-
-  
+  import NavBar from './components/NavBar.vue';
   export default {
     name: "App",
     components: { NavBar }
@@ -19,9 +17,9 @@ import NavBar from './components/NavBar.vue';
 @import "src/styles/base-classes.scss";
 @import "src/styles/base.scss";
 @import "src/styles/vars.scss";
+
   .app{
     height: 100%;
-
   }
 </style>
 

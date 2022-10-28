@@ -4,53 +4,50 @@
           v-if="!startQuiz">
       <h3>MATH QUIZ</h3>
       <p>{{ welcome.body }}</p>
-      <button
-              @click="handleQuiz"
+      <button @click="handleQuiz"
               class="base-button start-quiz">
         START QUIZ
       </button>
     </div>
     <Quiz v-else
           @handleExit="startQuiz=false"
-          :data="data"
-          />
+          :data="data"/>
   </div>
 
 </template>
 
 <script>
-    import Quiz from "@/components/Quiz";
-    export default {
+  import Quiz from "@/components/Quiz";
+  export default {
     name: 'MathQuizView',
     components: {Quiz},
+    data () {
+      return {
+        startQuiz: false,
+      }
+    },
 
+    computed: {
       data () {
-        return {
-          startQuiz: false,
-        }
+        return this.$store.state.data.quiz
       },
+      welcome () {
+        return this.$store.state.welcome
+      }
+    },
 
-      computed: {
-        data () {
-          return this.$store.state.data.quiz
-        },
-        welcome () {
-          return this.$store.state.welcome
+    methods: {
+      handleQuiz () {
+        if (!this.startQuiz) {
+          this.startQuiz = true
+          this.$store.dispatch("get_quiz")
         }
-      },
-
-      methods: {
-        handleQuiz () {
-          if (!this.startQuiz) {
-            this.startQuiz = true
-            this.$store.dispatch("get_quiz")
-          }
-          else{
-            this.startQuiz = false
-          }
+        else{
+          this.startQuiz = false
         }
       }
     }
+  }
 </script>
 
 <style lang="scss">
@@ -89,7 +86,6 @@
       }
     }
   }
-
   @media only screen and (min-width: 1140px){
     .start-button{
       margin-top: 18%;
