@@ -42,7 +42,7 @@ export default new Vuex.Store({
         linkedin: 'https://www.linkedin.com/in/denisa-cirstea-978a081b6/'
       },
       {
-        url: require('../assets/denisa.jpg'),
+        url: require('../assets/iulian.jpg'),
         name: 'Iulian Negrila',
         role: 'frontend developer',
         description: 'Glavi amet ritnisl libero molestie ante ut fringilla purus eros quis glavrid from dolor amet iquam lorem bibendum',
