@@ -296,7 +296,7 @@
         }
       }
       .team-presentation {
-        padding: 60px 0;
+        padding: 60px 0 0;
       }
       .person-card {
         margin-top: 20px;
