@@ -157,7 +157,7 @@
           input {
             display: none;
             &:checked+label{
-              border: 4px solid green;
+              border: 2px solid $dark-blue;
             }
           }
           label {
